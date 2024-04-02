@@ -43,8 +43,8 @@
             <hr>
             <div class="dropdown">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                <strong>mdo</strong>
+                <img src= "/img/profile.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                <!-- <strong>mdo</strong> -->
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                 <li><a class="dropdown-item" href="#">Settings</a></li>
@@ -53,20 +53,23 @@
                 <li><a class="dropdown-item" href="#">Log out</a></li>
                 </ul>
             </div>
-        </div class = "w-full">
+        </div>
             <div><header class="site-header">
                 <div class="container">
                     <div class="site-header-inner">
-                        <div class="brand header-brand">
-                            <h1 class="fs-4">
-                                Halo, Dr Andri
+                        <div class="brand header-brand ">
+                            <div class="title">
+                            <h1 class=" fs-4" >
+                                Halo, Dr Andri! 
                             </h1>
+                            </div>
+                            <p style="font-size: small;color:grey" >Selamat Datang, Selamat Beraktivitas</p>
                             <hr>
                         </div>
                     </div>
                 </div>
             </header>
-            <main class="py-4">
+            <main class="py-4 w-full">
                 @yield('content')
             </main>
         </div>
