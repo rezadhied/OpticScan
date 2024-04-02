@@ -1,0 +1,11 @@
+.row {
+    width: 950px;
+    height: 550px;
+}
+
+.nav-link {
+    margin-top: 0.5rem;
+}
+.nav-link:hover {
+    background-color: rgba(49, 136, 223, 0.2);
+}
