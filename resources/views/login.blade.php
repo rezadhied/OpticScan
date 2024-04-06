@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-6 p-4">
                 <div class="d-flex justify-content-center">
-                    <img src="assets/image/logo2.png" class="justify-content-center"
+                    <img src="/img/logo2.png" class="justify-content-center"
                         style="width: 400px; height: 400x;">
                 </div>
                 <div class="text-start">
