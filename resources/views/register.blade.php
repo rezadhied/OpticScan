@@ -13,11 +13,14 @@
     .link-opacity-25-hover:hover {
       opacity: 0.25;
     }
+    .card {
+      border-radius: 25px; /* Adjust the border radius as needed */
+    }
   </style>
 </head>
 <body>
 <div class="container mt-5">
-    <div class="card shadow rounded">
+    <div class="card shadow">
       <div class="row g-0">
         <div class="col-md-4">
           <img src="/img/OpticScan.png" class="img-fluid" style="height: 100%;" alt="">
