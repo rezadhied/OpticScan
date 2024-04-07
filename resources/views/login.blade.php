@@ -18,7 +18,7 @@
         <div style="padding:35px;">
             <div class="text-start">
                 <h1>Login</h1>
-                <h8 style="font-weight: lighter;">belum punya akun? <a href="daftar-sekarang.html" style="text-decoration: underline; font-weight: bold;">Daftar Sekarang</a> </h8 > <br><br><br>
+                <h8 style="font-weight: lighter;">belum punya akun? <a href="/register#" style="text-decoration: underline; font-weight: bold;">Daftar Sekarang</a> </h8 > <br><br><br>
             </div>            
             <h5>Username atau email</h5>
             <form >
