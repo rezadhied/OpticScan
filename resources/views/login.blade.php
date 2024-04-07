@@ -12,7 +12,7 @@
 <div class="bg-Light">
 <div class="row">
     <div class="text-end">
-    <p><a href="#" class="link-underline">Kembali ke Beranda</a></p>
+    <p><a href="/" class="link-underline">Kembali ke Beranda</a></p>
     </div>
     <div class="col-md-12 justify-content-end">
         <div style="padding:35px;">
