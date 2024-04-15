@@ -21,17 +21,22 @@
         <div class="collapse navbar-collapse" id="navbarnav">
             <ul class="navbar-nav ml-auto" style="margin-right: 40px;">
                 <li class="nav-item active">
-                    <a href="#" class="nav-link" style="color: white; margin-top: 20px;">
+                    <a href="#" class="nav-link" style="color: white; margin-top: 20px; margin-right: 20px;">
+                        Beranda
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="#" class="nav-link" style="color: white; margin-top: 20px; margin-right: 20px;">
                         Info Penyakit Mata
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a href="#" class="nav-link" style="color: white; margin-top: 20px;">
+                    <a href="#" class="nav-link" style="color: white; margin-top: 20px; margin-right: 20px;">
                         Tentang Kami
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a href="#" class="nav-link" style="color: white; margin-top: 20px;">
+                    <a href="#" class="nav-link" style="color: white; margin-top: 20px; margin-right: 20px;">
                         Hubungi Kami
                     </a>
                 </li>&nbsp;&nbsp;

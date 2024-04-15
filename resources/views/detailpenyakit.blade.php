@@ -73,9 +73,17 @@
             <button class="rounded-lg btn-lg" style="background-color: #081445; color: white; font-size: 20px; font-weight: 600; margin-left: 1395px;">Kembali</button>
         </div>        
       </div>
-    </div>
+    </div><br><br><br>
 
-  
+    <div class="container-fluid" style="background-color: #132768; padding: 50px;">
+        <img src="assets/image/logo.png" style="width: 250px; height: 90px;" alt="">
+        <div class="text-center text-light">
+            <h1 style="color: white;">Memanen Kecerdasan dari Algoritma</h1>
+            <h1 style="color: white;">Merintis Masa Depan AI</h1>
+            <p class="nav-item active" style="border-bottom: 1px solid white;"></p>
+            <h3 style="color: white; font-size: medium; text-align: center;">© 2024 OpticScan. All rights reserved.</h3>
+        </div>    
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

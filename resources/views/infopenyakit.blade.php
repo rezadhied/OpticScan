@@ -158,8 +158,17 @@
             <a class="page-link" href="#">Selanjutnya</a>
           </li>
     </ul>
-  </nav>
+  </nav><br><br>
   
+  <div class="container-fluid" style="background-color: #132768; padding: 50px;">
+    <img src="assets/image/logo.png" style="width: 250px; height: 90px;" alt="">
+    <div class="text-center text-light">
+        <h1 style="color: white;">Memanen Kecerdasan dari Algoritma</h1>
+        <h1 style="color: white;">Merintis Masa Depan AI</h1>
+        <p class="nav-item active" style="border-bottom: 1px solid white;"></p>
+        <h3 style="color: white; font-size: medium; text-align: center;">© 2024 OpticScan. All rights reserved.</h3>
+    </div>    
+  </div>
   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/boxicons/2.0.7/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
