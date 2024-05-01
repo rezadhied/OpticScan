@@ -28,9 +28,9 @@
         <div class="col-md-6 ms-md-5">
           <div class="card-body">
           <span class="float-md-end mb-5"><a href="/" class="text-dark">Kembali ke Beranda</a></span>
-            <div class="title mt-5">
+            <div class="title mt-3">
                 <h1>Buat Akun</h1>
-                <span>Sudah punya akun? <a class="link-opacity-25-hover" href="/login">Log in</a></span>
+                <span>Sudah punya akun? <a class="link-opacity-50-hover" href="/login">Log in</a></span>
                 <br><br>
             </div>
             <form action="{{ route('register.store') }}" method="POST">
@@ -49,14 +49,21 @@
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
               </div>
-              <div class="mb-3">
+              <div class="mb-1">
                 <label for="pass">Password</label>
                 <input type="password" class="form-control border-secondary-subtle" id="pass" name="password" placeholder="Masukkan password">
                 @error('password')
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
               </div>
-              <p>Gunakan 8 karakter atau lebih dengan campuran huruf, angka & simbol</p>
+              <span class="text-secondary" style="font-size: small">Gunakan 8 karakter atau lebih dengan campuran huruf, angka & simbol</span>
+              <div class="mb-3 mt-2">
+                <label for="NoHP">Nomor Handphone</label>
+                <input type="text" class="form-control border-secondary-subtle" id="NoHP" name="NoHP" placeholder="Masukkan Nomor Handphone">
+                @error('NoHP')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
+              </div>
 
               <button class="btn btn-primary" type="submit">Buat Akun</button>
             </form>
