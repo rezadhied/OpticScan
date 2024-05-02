@@ -161,7 +161,7 @@
   </nav><br><br>
   
   <div class="container-fluid" style="background-color: #132768; padding: 50px;">
-    <img src="assets/image/logo.png" style="width: 250px; height: 90px;" alt="">
+    <img src="/img/logo.png" style="width: 250px; height: 90px;" alt="">
     <div class="text-center text-light">
         <h1 style="color: white;">Memanen Kecerdasan dari Algoritma</h1>
         <h1 style="color: white;">Merintis Masa Depan AI</h1>

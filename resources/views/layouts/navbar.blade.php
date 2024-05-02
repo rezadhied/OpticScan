@@ -12,48 +12,39 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-sm navbar-light", style="background-color: #132768;">
-        <a 
-            href="#" 
-            class="navbar-brand mb-0 h1 ml-auto">
-                <img src="/img/logo.png" width="249" height="78" style="margin-left: 60px;">
+    <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #132768;">
+        <a href="#" class="navbar-brand mb-0 h1 ml-auto">
+            <img src="/img/logo.png" width="249" height="78" style="margin-left: 30px;">
         </a>
         <div class="collapse navbar-collapse" id="navbarnav">
-            <ul class="navbar-nav ml-auto" style="margin-right: 40px;">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a href="#" class="nav-link" style="color: white; margin-top: 20px; margin-right: 20px;">
-                        Beranda
-                    </a>
+                    <a href="#" class="nav-link text-light hover text-blue" style="margin-top: 5px; margin-right: 20px;">Beranda</a>
                 </li>
                 <li class="nav-item active">
-                    <a href="#" class="nav-link" style="color: white; margin-top: 20px; margin-right: 20px;">
-                        Info Penyakit Mata
-                    </a>
+                    <a href="#" class="nav-link text-light hover text-blue" style="margin-top: 5px; margin-right: 20px;">Riwayat</a>
                 </li>
                 <li class="nav-item active">
-                    <a href="#" class="nav-link" style="color: white; margin-top: 20px; margin-right: 20px;">
-                        Tentang Kami
-                    </a>
+                    <a href="#" class="nav-link text-light hover text-blue" style="margin-top: 5px; margin-right: 20px;">Tentang Kami</a>
                 </li>
                 <li class="nav-item active">
-                    <a href="#" class="nav-link" style="color: white; margin-top: 20px; margin-right: 20px;">
-                        Hubungi Kami
-                    </a>
-                </li>&nbsp;&nbsp;
-                <li class="nav-item active" style="border-right: 1px solid #000000;"></li>&nbsp;&nbsp;&nbsp;
-                <div class="btn-group dropleft">
-                    <button type="button" class="btn btn-secondary rounded-circle" style="width: 79px; height: 79px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-dark text-small shadow">
-                        <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Sign out</a>
+                    <a href="#" class="nav-link text-light hover text-blue" style="margin-top: 5px; margin-right: 20px;">Setelan</a>
+                </li>
+            </ul>
+            
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <div class="btn-group dropleft" style="position: relative; display: inline-block; margin-right: 30px;">
+                        <button type="button" class="btn btn-secondary rounded-circle" style="width: 79px; height: 79px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="/img/profile2.jpg" alt="Random Image" style="width: 79px; height: 79px; object-fit: cover; border-radius: 50%; position: absolute; top: 0; left: 0;">
+                        </button>
                     </div>
-                </div>                                                                
+                    
+                </li>
             </ul>
         </div>        
     </nav>
+    
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

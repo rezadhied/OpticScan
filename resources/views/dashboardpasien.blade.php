@@ -14,7 +14,7 @@
 <div class="container-fluid" style="background-color: #132768; padding: 60px;">
     <div class="row">
         <div class="col-md-6 order-md-2 d-flex justify-content-end align-items-center">
-            <img src="assets/image/mata.png" style="width: 100%; max-width: 300px;">
+            <img src="/img/mata.png" style="width: 100%; max-width: 300px;">
         </div>
         <div class="col-md-6 order-md-1" style="margin-top: 20px;">
             <h1 style="font-weight: bolder; font-size: 30px; color: white;">
@@ -68,7 +68,7 @@
                                 <div class="col-md-4" style="margin-top: 40px;">
                                     <div class="single-box" style="background-color: #536f9f; height: 220px; border-radius: 15px;">
                                         <div class="img-area d-flex justify-content-center align-items-center rounded-circle" style="margin-top: 10px;">
-                                            <img src="assets/image/profilpasien.jpg" style="width: 70px; height: 70px; border-radius: 50%; margin-top: 20px;">
+                                            <img src="/img/profilpasien.jpg" style="width: 70px; height: 70px; border-radius: 50%; margin-top: 20px;">
                                         </div>
                                         <div style="text-align: center; margin-top: 5px; color: white;">
                                             <h2>Putro Suryono</h2>
@@ -79,7 +79,7 @@
                                 <div class="col-md-4" style="margin-top: 40px;">
                                     <div class="single-box" style="background-color: #536f9f; height: 220px; border-radius: 15px;">
                                         <div class="img-area d-flex justify-content-center align-items-center rounded-circle" style="margin-top: 10px;">
-                                            <img src="assets/image/profile2.jpg" style="width: 70px; height: 70px; border-radius: 50%; margin-top: 20px;">
+                                            <img src="/img/profile2.jpg" style="width: 70px; height: 70px; border-radius: 50%; margin-top: 20px;">
                                         </div>
                                         <div style="text-align: center; margin-top: 5px; color: white;">
                                             <h2>Michale Duko</h2>
@@ -96,7 +96,7 @@
                                 <div class="col-md-4" style="margin-top: 40px;">
                                     <div class="single-box" style="background-color: #536f9f; height: 220px; border-radius: 15px;">
                                         <div class="img-area d-flex justify-content-center align-items-center rounded-circle" style="margin-top: 10px;">
-                                            <img src="assets/image/profile3.jpg" style="width: 70px; height: 70px; border-radius: 50%; margin-top: 20px;">
+                                            <img src="/img/profile3.jpg" style="width: 70px; height: 70px; border-radius: 50%; margin-top: 20px;">
                                         </div>
                                         <div style="text-align: center; margin-top: 5px; color: white;">
                                             <h2>Steve Rusdiana</h2>
@@ -107,7 +107,7 @@
                                 <div class="col-md-4" style="margin-top: 40px;">
                                     <div class="single-box" style="background-color: #536f9f; height: 220px; border-radius: 15px;">
                                         <div class="img-area d-flex justify-content-center align-items-center rounded-circle" style="margin-top: 10px;">
-                                            <img src="assets/image/profile4.jpg" style="width: 70px; height: 70px; border-radius: 50%; margin-top: 20px;">
+                                            <img src="/img/profile4.jpg" style="width: 70px; height: 70px; border-radius: 50%; margin-top: 20px;">
                                         </div>
                                         <div style="text-align: center; margin-top: 5px; color: white;">
                                             <h2>Putri Caroline</h2>
@@ -124,7 +124,7 @@
                                 <div class="col-md-4" style="margin-top: 40px;">
                                     <div class="single-box" style="background-color: #536f9f; height: 220px; border-radius: 15px;">
                                         <div class="img-area d-flex justify-content-center align-items-center rounded-circle" style="margin-top: 10px;">
-                                            <img src="assets/image/profile5.jpg" style="width: 70px; height: 70px; border-radius: 50%; margin-top: 20px;">
+                                            <img src="/img/profile5.jpg" style="width: 70px; height: 70px; border-radius: 50%; margin-top: 20px;">
                                         </div>
                                         <div style="text-align: center; margin-top: 5px; color: white;">
                                             <h2>Anzel Kania</h2>
@@ -135,7 +135,7 @@
                                 <div class="col-md-4" style="margin-top: 40px;">
                                     <div class="single-box" style="background-color: #536f9f; height: 220px; border-radius: 15px;">
                                         <div class="img-area d-flex justify-content-center align-items-center rounded-circle" style="margin-top: 10px;">
-                                            <img src="assets/image/profile6.jpg" style="width: 70px; height: 70px; border-radius: 50%; margin-top: 20px;">
+                                            <img src="/img/profile6.jpg" style="width: 70px; height: 70px; border-radius: 50%; margin-top: 20px;">
                                         </div>
                                         <div style="text-align: center; margin-top: 5px; color: white;">
                                             <h2>David Chalamat</h2>
@@ -162,7 +162,7 @@
 
 
 <div class="container-fluid" style="background-color: #132768; padding: 50px;">
-    <img src="assets/image/logo.png" style="width: 250px; height: 90px;" alt="">
+    <img src="/img/logo.png" style="width: 250px; height: 90px;" alt="">
     <div class="text-center text-light">
         <h1 style="color: white;">Memanen Kecerdasan dari Algoritma</h1>
         <h1 style="color: white;">Merintis Masa Depan AI</h1>
