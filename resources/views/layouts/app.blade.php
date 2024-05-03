@@ -32,15 +32,15 @@
             </li>
             <br>
             <li>
-                <a href="/datapasien" class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
+                <a href="{{route('datapasien.index') }}" class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
                     <img src="/img/people.png" alt="">
                     Pasien
                 </a>
             </li>
         </ul>
         <hr>
-        <div class="dropdown">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="/img/profile.png" alt="" width="32" height="32" class="rounded-circle me-2">
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
@@ -72,7 +72,8 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+   
+    
 </body>
 </html>

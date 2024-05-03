@@ -51,7 +51,7 @@
             </div>
             <div class="mb-3">
                 <label for="name">Tanggal Lahir</label>
-                <input type="text" class="form-control border-secondary-subtle" id="ttl" name="ttl" placeholder="Masukkan tanggal lahir anda" value="{{ old('ttl') }}">
+                <input type="date" class="form-control border-secondary-subtle" id="ttl" name="ttl" placeholder="Masukkan tanggal lahir anda" value="{{ old('ttl') }}">
                 @error('ttl')
                   <div class="text-danger">{{ $message }}</div>
                 @enderror

@@ -19,7 +19,7 @@
             </div>
             <div class="mb-3">
                     <label for="name">Tanggal Lahir </label>
-                    <input type="text" class="form-control border-secondary-subtle" id="name" name="name"
+                    <input type="date" class="form-control border-secondary-subtle" id="name" name="name"
             </div>
             <div class="mb-3">
                     <label for="name">No HP </label>
