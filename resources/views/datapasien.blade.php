@@ -11,16 +11,16 @@
             height: auto;
             margin-right: 5px;
             vertical-align: middle;
-            transition: filter 0.3s ease;
+            transition: filter 1s ease;
         }
         .button-text {
             color: black;
-            transition: color 0.3s ease;
+            transition: color 1s ease;
         }
         .btn-primary {
             background-color: transparent;
             border: none;
-            transition: background-color 0.3s ease;
+            transition: background-color 1s ease;
         }
         .btn-primary:hover {
             background-color: rgba(0, 123, 255, 0.75);
@@ -39,6 +39,7 @@
 </head>
 <body>
 @extends('layouts.app')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-end">
@@ -67,14 +68,88 @@
             </div>
         </div>
         <div class="col mt-2">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inputModal">
                 <img src="img/add-user.png" alt="Icon" class="button-img">
                 <span class="ms-1 button-text">Tambah Pasien</span>
             </button>
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="inputModal" tabindex="-1" aria-labelledby="inputModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="inputModalLabel">Input Data Pasien</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <form class="row g-4">
+                        <div class="col-12 col-sm-6">
+                            <div class="mt-4">
+                                <label for="nama" class="form-label">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama Lengkap Pasien">
+                            </div>
+                            <div class="mt-4">
+                                <label for="NomorHP" class="form-label">Nomor HP</label>
+                                <input type="text" class="form-control" id="NomorHP" placeholder="Masukkan Nomor Handphone">
+                            </div>
+                            <div class="mt-4">
+                                <label for="TanggalDaftar" class="form-label">Tanggal Daftar</label>
+                                <input type="date" class="form-control" id="TanggalDaftar">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="mt-4">
+                                <label for="Dokter" class="form-label">Dokter</label>
+                                <input type="text" class="form-control" id="Dokter" placeholder="Masukkan Nama Anda">
+                            </div>
+                            <div class="mt-4">
+                                <label for="Diagnosa" class="form-label">Diagnosa</label>
+                                <input type="text" class="form-control" id="Diagnosa" placeholder="Masukkan Diagnosa Pasien">
+                            </div>
+                            <div class="">
+                            <div class="row align-items-center mt-4">
+                                <div class="col">
+                                    <label for="Status" class="form-label">Status</label>
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle rounded-pill w-100" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Pilih Status
+                                        </button>
+                                        <ul class="dropdown-menu w-auto h-full px-3" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" onclick="setStatus('Follow up Examination', 'btn-danger')">Follow up Examination</a>
+                                            <a class="dropdown-item" onclick="setStatus('Continued Treatment', 'btn-warning')">Continued Treatment</a>
+                                            <a class="dropdown-item color: white" onclick="setStatus('Recover', 'btn-success')">Recover</a>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="selectedStatus" class="col-auto w-50 pt-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="mt-4">
+                    <button class="btn btn-success me-3 w-9">Save</button>
+                    <button class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    function setStatus(status, btnClass) {
+        var selectedStatus = document.getElementById('selectedStatus');
+        selectedStatus.innerHTML = '<a class="dropdown-item" href="#" onclick="selectStatus(\'' + status + '\', \'' + btnClass + '\')">' + status + '</a>';
+    }
+
+    function selectStatus(status, btnClass) {
+        var selectedStatus = document.getElementById('selectedStatus');
+        selectedStatus.innerHTML = '<button type="button" class="btn ' + btnClass + ' selected-button">' + status + '</button>';
+    }
+</script>
 </body>
 </html>
