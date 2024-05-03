@@ -25,14 +25,14 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a href="#" class="nav-link d-flex align-items-center gap-2 text-white " aria-current="page">
+                <a href="/" class="nav-link d-flex align-items-center gap-2 text-white " aria-current="page">
                     <img src="/img/home.png" alt="">
                     Beranda
                 </a>
             </li>
             <br>
             <li>
-                <a href="#" class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
+                <a href="/datapasien" class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
                     <img src="/img/people.png" alt="">
                     Pasien
                 </a>
