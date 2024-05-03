@@ -15,4 +15,4 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 Route::get('/DataInput', [InputDataPasien::class, 'index']);
-Route::get('/datapasien', [DataPasienController::class, 'index']);
+Route::resource('/datapasien', DataPasienController::class)->names('datapasien');
