@@ -25,7 +25,7 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a href="#" class="nav-link d-flex align-items-center gap-2 text-white " aria-current="page">
+                <a href="{{route('dashboardDokter') }}" class="nav-link d-flex align-items-center gap-2 text-white " aria-current="page">
                     <img src="/img/home.png" alt="">
                     Beranda
                 </a>
@@ -45,7 +45,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                 <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="{{route('profile.index') }}">Profile</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Log out</a></li>
             </ul>
