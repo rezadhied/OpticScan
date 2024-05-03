@@ -36,9 +36,23 @@
             <form action="{{ route('register.store') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="name">Username</label>
-                <input type="text" class="form-control border-secondary-subtle" id="name" name="name" placeholder="Masukkan username" value="{{ old('name') }}">
+                <label for="name">Nama </label>
+                <input type="text" class="form-control border-secondary-subtle" id="name" name="name" placeholder="Masukkan nama lengkap anda" value="{{ old('name') }}">
                 @error('name')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="name">Username</label>
+                <input type="text" class="form-control border-secondary-subtle" id="Uname" name="Uname" placeholder="Masukkan username" value="{{ old('Uname') }}">
+                @error('Uname')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="name">Tanggal Lahir</label>
+                <input type="text" class="form-control border-secondary-subtle" id="ttl" name="ttl" placeholder="Masukkan tanggal lahir anda" value="{{ old('ttl') }}">
+                @error('ttl')
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
@@ -49,6 +63,13 @@
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
               </div>
+              <div class="mb-3 ">
+                <label for="NoHP">Nomor Handphone</label>
+                <input type="text" class="form-control border-secondary-subtle" id="NoHP" name="NoHP" placeholder="Masukkan Nomor Handphone">
+                @error('NoHP')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
+              </div>
               <div class="mb-1">
                 <label for="pass">Password</label>
                 <input type="password" class="form-control border-secondary-subtle" id="pass" name="password" placeholder="Masukkan password">
@@ -56,16 +77,10 @@
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
               </div>
-              <span class="text-secondary" style="font-size: small">Gunakan 8 karakter atau lebih dengan campuran huruf, angka & simbol</span>
-              <div class="mb-3 mt-2">
-                <label for="NoHP">Nomor Handphone</label>
-                <input type="text" class="form-control border-secondary-subtle" id="NoHP" name="NoHP" placeholder="Masukkan Nomor Handphone">
-                @error('NoHP')
-                  <div class="text-danger">{{ $message }}</div>
-                @enderror
-              </div>
-
+              <span class="text-secondary " style="font-size: small">Gunakan 8 karakter atau lebih dengan campuran huruf, angka & simbol</span>
+              <br><br>
               <button class="btn btn-primary" type="submit">Buat Akun</button>
+              
             </form>
           </div>
         </div>
