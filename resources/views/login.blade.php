@@ -22,7 +22,7 @@
                 </div>
                 <div class="text-start">
                     <h1 style="color: #132768; font-size: 60px;">Login</h1>
-                    <h8 style="font-weight: lighter; color: #132768;">belum punya akun? <a href="daftar-sekarang.html"
+                    <h8 style="font-weight: lighter; color: #132768;">belum punya akun? <a href="/register"
                             style="text-decoration: underline; font-weight: bold;">Daftar Sekarang</a></h8><br><br><br>
                 </div>
                 <h5 style="color: #132768;">Username atau email</h5>

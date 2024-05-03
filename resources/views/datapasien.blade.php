@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Pasien</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .button-img {
+            width: 20px;
+            height: auto;
+            margin-right: 5px;
+            vertical-align: middle;
+            transition: filter 0.3s ease;
+        }
+        .button-text {
+            color: black;
+            transition: color 0.3s ease;
+        }
+        .btn-primary {
+            background-color: transparent;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: rgba(0, 123, 255, 0.75);
+            border: 1px solid transparent;
+        }
+        .btn-primary:not(:hover) {
+            background-color: transparent;
+        }
+        .btn-primary:hover .button-img {
+            filter: brightness(0) invert(1);
+        }
+        .btn-primary:hover .button-text {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+@extends('layouts.app')
+@section('content')
+<div class="container">
+    <div class="row justify-content-end">
+        <div class="col-md-15">
+            <div class="card">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nama Lengkap</th>
+                            <th>Tanggal Daftar</th>
+                            <th>Diagnosa</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rizky Pratama</td>
+                            <td>03/12/2024</td>
+                            <td>Katarak</td>
+                            <td>Follow-Up Examination</td>
+                            <td>i</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col mt-2">
+            <button type="button" class="btn btn-primary">
+                <img src="img/add-user.png" alt="Icon" class="button-img">
+                <span class="ms-1 button-text">Tambah Pasien</span>
+            </button>
+        </div>
+    </div>
+</div>
+@endsection
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
