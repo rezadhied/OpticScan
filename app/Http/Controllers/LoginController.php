@@ -19,15 +19,15 @@ class LoginController extends Controller
         $usernameOrEmail = $request->input('username');
         $password = $request->input('password');
 
-        // Cek apakah input adalah email atau username
         $user = ModelUser::where('email', $usernameOrEmail)->orWhere('username', $usernameOrEmail)->first();
 
         if ($user && Hash::check($password, $user->password)) {
-            $request->session()->put('user', $user);
+            $request->session()->put('user_id', $user->id);
 
             return redirect('/');
         } else {
             return redirect()->back()->with('alert', 'Wrong username or password');
         }
     }
+
 }

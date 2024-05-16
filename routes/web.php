@@ -8,7 +8,7 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\DataPasienController;
 use App\Http\Controllers\InputDataPasien;
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboardDokter');
+Route::get('/', [DashboardController::class, 'index'])->name('dashboardDokter')->middleware('auth');
 
 Route::resource('/profile', ProfilController::class)->names('profile');
 
