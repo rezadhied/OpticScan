@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ModelUser;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -17,14 +15,9 @@ class LoginController extends Controller
 
     public function loginPost(Request $request)
     {
-        $usernameOrEmail = $request->input('username');
-        $password = $request->input('password');
+        $credentials = $request->only('username', 'password');
 
-        $user = ModelUser::where('email', $usernameOrEmail)->orWhere('username', $usernameOrEmail)->first();
-
-        if ($user && Hash::check($password, $user->password)) {
-            $request->session()->put('user_id', $user->id);
-
+        if (Auth::attempt($credentials)) {
             return redirect('/');
         } else {
             return redirect()->back()->with('alert', 'Wrong username or password');
@@ -39,5 +32,4 @@ class LoginController extends Controller
 
         return redirect('/login');
     }
-
 }

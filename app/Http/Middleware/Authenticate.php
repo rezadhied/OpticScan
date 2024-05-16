@@ -17,11 +17,10 @@ class Authenticate
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!$request->session()->has('user_id')) {
+        if (!Auth::check()) {
             return redirect()->route('login')->with('alert', 'You need to login first.');
         }
 
         return $next($request);
     }
-
 }

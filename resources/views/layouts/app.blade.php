@@ -58,7 +58,7 @@
                     <div class="site-header-inner">
                         <div class="brand header-brand ">
                             <div class="title mt-4">
-                                <h1 class="fs-4">Halo,</h1> <!-- Ganti dengan sapaan sesuai nama pengguna yang sedang login -->
+                                <h1 class="fs-4">Halo, {{ Auth::user()->name }}!</h1> <!-- Ganti dengan sapaan sesuai nama pengguna yang sedang login -->
                             </div>
                             <p style="font-size: small;color:grey">Selamat Datang, Selamat Beraktivitas</p>
                             <hr>
