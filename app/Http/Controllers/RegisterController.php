@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ModelUser;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class RegisterController extends Controller
 {
@@ -34,6 +35,8 @@ class RegisterController extends Controller
         $data->password = Hash::make($request->password);
         $data->role = 'pasien'; // Set default role sebagai pasien
         $data->save();
+
+        Session::put('user', $data);
 
         return redirect('/')->with('alert-success','Register Success');
     }

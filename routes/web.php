@@ -8,11 +8,15 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\DataPasienController;
 use App\Http\Controllers\InputDataPasien;
 
-
 Route::get('/', [DashboardController::class, 'index'])->name('dashboardDokter');
-Route::resource('/profile',ProfilController::class)->names('profile');
-Route::get('/login', [LoginController::class, 'index']);
+
+Route::resource('/profile', ProfilController::class)->names('profile');
+
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'loginPost'])->name('login.post');
+
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+
 Route::get('/DataInput', [InputDataPasien::class, 'index']);
 Route::resource('/datapasien', DataPasienController::class)->names('datapasien');

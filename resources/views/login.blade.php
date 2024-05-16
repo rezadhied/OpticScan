@@ -26,27 +26,28 @@
                             style="text-decoration: underline; font-weight: bold;">Daftar Sekarang</a></h8><br><br><br>
                 </div>
                 <h5 style="color: #132768;">Username atau email</h5>
-                <form style="color: #132768;">
+                <form method="POST" action="{{ route('login.post') }}" style="color: #132768;">
+                    @csrf
                     <div class="form-group">
-                        <input type="text" class="form-control form-control-user fw-light" id="text"
-                            placeholder="Username">
+                        <input type="text" name="username" class="form-control form-control-user fw-light" id="username"
+                            placeholder="Username or Email">
                     </div><br>
                     <h5>Password</h5>
                     <div class="form-group">
-                        <input type="password" class="form-control form-control-user fw-light" id="password"
+                        <input type="password" name="password" class="form-control form-control-user fw-light" id="password"
                             placeholder="Password">
                     </div><br>
                     <div class="text-end">
                         <a href="forgot-password.html">Lupa Password?</a>
                     </div><br>
                     <div class="form-group">
-                        <a id="loginButton" onclick="submit()"
-                            class="btn btn-secondary btn-user btn-block rounded-5 d-grid gap-2"
+                        <button type="submit" class="btn btn-secondary btn-user btn-block rounded-5 d-grid gap-2"
                             style="background-color: #132768; font-size: 20px;">
                             Login
-                        </a>
+                        </button>
                     </div>
                 </form>
+                
             </div>
         </div>
     </div>

@@ -5,32 +5,29 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ModelUser;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
-    public function index(){
-        return view ('login');
+    public function index()
+    {
+        return view('login');
     }   
 
-    public function loginPost(Request $request){
+    public function loginPost(Request $request)
+    {
+        $usernameOrEmail = $request->input('username');
+        $password = $request->input('password');
 
-        $username = $request->username;
-        $password = $request->password;
+        // Cek apakah input adalah email atau username
+        $user = ModelUser::where('email', $usernameOrEmail)->orWhere('username', $usernameOrEmail)->first();
 
-        $data = ModelUser::where('username',$username)->first();
-        if($data){ 
-            if(Hash::check($password,$data->password)){
-                Session::put('name',$data->name);
-                Session::put('username',$data->username);
-                Session::put('login',TRUE);
-                return redirect('/');
-            }
-            else{
-                return redirect('login')->with('alert','Wrong password or email!');
-            }
-        }
-        else{
-            return redirect('login')->with('alert','Wrong password or email!');
+        if ($user && Hash::check($password, $user->password)) {
+            $request->session()->put('user', $user);
+
+            return redirect('/');
+        } else {
+            return redirect()->back()->with('alert', 'Wrong username or password');
         }
     }
 }
