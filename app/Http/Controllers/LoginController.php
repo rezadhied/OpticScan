@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\ModelUser;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -28,6 +29,15 @@ class LoginController extends Controller
         } else {
             return redirect()->back()->with('alert', 'Wrong username or password');
         }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout(); 
+        $request->session()->invalidate(); 
+        $request->session()->regenerateToken(); 
+
+        return redirect('/login');
     }
 
 }

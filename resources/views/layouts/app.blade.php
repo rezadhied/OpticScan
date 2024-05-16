@@ -47,7 +47,7 @@
                 <li><a class="dropdown-item" href="#">Settings</a></li>
                 <li><a class="dropdown-item" href="{{route('profile.index') }}">Profile</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Log out</a></li>
+                <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
             </ul>
         </div>
     </div>
@@ -58,7 +58,7 @@
                     <div class="site-header-inner">
                         <div class="brand header-brand ">
                             <div class="title mt-4">
-                                <h1 class="fs-4">Halo, Dr Andri!</h1>
+                                <h1 class="fs-4">Halo,</h1> <!-- Ganti dengan sapaan sesuai nama pengguna yang sedang login -->
                             </div>
                             <p style="font-size: small;color:grey">Selamat Datang, Selamat Beraktivitas</p>
                             <hr>
@@ -72,8 +72,9 @@
         </div>
     </div>
 
-    
-   
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
     
 </body>
 </html>
