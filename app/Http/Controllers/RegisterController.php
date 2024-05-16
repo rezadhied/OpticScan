@@ -9,29 +9,32 @@ use Illuminate\Support\Facades\Hash;
 class RegisterController extends Controller
 {
     public function index(){
-        return view ('register');
+        return view('register');
     }   
 
     public function store(Request $request){
-        
         $request->validate([
             'name' => 'required|min:4',
-            'username' => 'required|min:4|unique:model_user',
-            'email' => 'required|email|unique:model_user',
-            'password' => 'required',
-            'confirmation' => 'required|same:password',
+            'Uname' => 'required|min:4|unique:model_user,username',
+            'email' => 'required|email|unique:model_user,email',
+            'ttl' => 'required|date',
+            'NoHP' => 'required|min:10',
+            'password' => 'required|min:8|confirmed',
         ], [
-            'username.unique' => 'Username sudah terdaftar.',
+            'Uname.unique' => 'Username sudah terdaftar.',
             'email.unique' => 'Email sudah terdaftar.',
         ]);
 
-        $data =  new ModelUser();
+        $data = new ModelUser();
         $data->name = $request->name;
-        $data->username = $request->username;
+        $data->username = $request->Uname;
         $data->email = $request->email;
+        $data->phone = $request->NoHP;
+        $data->birthdate = $request->ttl;
         $data->password = Hash::make($request->password);
         $data->role = 'pasien'; // Set default role sebagai pasien
         $data->save();
+
         return redirect('/')->with('alert-success','Register Success');
     }
 }
