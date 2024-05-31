@@ -10,7 +10,7 @@ class ModelUser extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    protected $table = 'model_user'; // Nama tabel yang digunakan
+    protected $table = 'model_user'; 
 
     protected $fillable = [
         'name',
