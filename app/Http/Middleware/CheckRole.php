@@ -31,6 +31,9 @@ class CheckRole
                 case 'pasien':
                     return redirect()->route('dashboardPasien')->with('alert', 'You are not authorized to access this page.');
                     break;
+                case 'admin':
+                    return redirect()->route('dashboardDokter')->with('alert', 'You are not authorized to access this page.');
+                    break;
                 default:
                     return redirect()->route('login')->with('alert', 'You need to login first.');
             }
