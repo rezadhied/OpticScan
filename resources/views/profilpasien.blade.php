@@ -63,6 +63,12 @@
                                 <input type="text" class="form-control" id="inputRole" style="width: 400%;" value="Pasien" disabled>
                             </div>
                         </div>
+                        <div class="form-group col justify-content-end" style="margin-left: 118px;">
+                            <div class="col-sm-12 text-end">
+                                <button class="btn btn-secondary mr-2">Kembali</button>
+                                <button class="btn btn-primary">Simpan Perubahan</button>
+                            </div>
+                        </div>
                     </div>
                 </div><br>
             </div>

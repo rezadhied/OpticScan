@@ -7,6 +7,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\DataPasienController;
 use App\Http\Controllers\InputDataPasien;
+use App\Http\Controllers\KelolaPenggunaController;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboardDokter')->middleware('auth');
 
@@ -22,3 +23,5 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 
 Route::get('/DataInput', [InputDataPasien::class, 'index'])->middleware('auth');
 Route::resource('/datapasien', DataPasienController::class)->names('datapasien')->middleware('auth');
+
+Route::resource('/kelolapengguna', KelolaPenggunaController::class)->names('kelolaPengguna')->middleware('auth');
