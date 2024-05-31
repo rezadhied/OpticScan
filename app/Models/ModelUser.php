@@ -3,19 +3,27 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class ModelUser extends Model
+class ModelUser extends Authenticatable
 {
-    use HasFactory;
-    
-    protected $table = 'model_user';
+    use HasFactory, Notifiable;
+
+    protected $table = 'model_user'; 
 
     protected $fillable = [
         'name',
         'username',
         'email',
         'password',
-        'role',
+        // sesuaikan atribut fillable dengan kolom yang sesuai di tabel Anda
+    ];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+        // tambahkan atribut yang perlu disembunyikan (jika ada)
     ];
 }
+
