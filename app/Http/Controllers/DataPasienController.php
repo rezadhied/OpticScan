@@ -3,82 +3,61 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreatePatientRequest;
+use App\Models\ModelUser;
+use App\Models\PatientReport;
+use App\Models\Report;
+use App\Models\ReportData;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DataPasienController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         return view('datapasien');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(CreatePatientRequest $request)
     {
-        //
-    }
+        $user = Auth::user();
+        // Cari user dengan role 'pasien' berdasarkan patient_phone
+        $patientUser = ModelUser::where('phone', $request->patient_phone)->where('role', 'pasien')->first();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        if (!$patientUser) {
+            return response()->json(['message' => 'Pasien tidak ditemukan'], 404);
+        }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        // Simpan data pasien di table patient_report
+        $patientReport = PatientReport::create([
+            'patient_id' => $request->patient_id,
+            'user_id' => $user->id,
+            'report_id' => null, // Sementara kosong, akan diupdate setelah report dibuat
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        // Simpan data report di table reports
+        $report = Report::create([
+            'user_id' => $patientUser->id,
+            'patient_id' => $patientReport->patient_id,
+            'register_date' => $request->register_date,
+            'test_status' => 'Sedang Diproses',
+            'diagnose' => 'Belum Terdiagnosa',
+        ]);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        // Update patient_report dengan report_id yang sudah dibuat
+        $patientReport->update(['report_id' => $report->report_id]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        // Simpan file foto
+        if ($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('photos', 'public');
+
+            ReportData::create([
+                'report_id' => $report->report_id,
+                'filepath' => $path,
+            ]);
+        }
+
+        return response()->json(['message' => 'Data pasien berhasil disimpan']);
     }
 }

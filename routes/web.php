@@ -1,8 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\DataPasienController;
@@ -25,3 +25,5 @@ Route::get('/DataInput', [InputDataPasien::class, 'index'])->middleware('auth');
 Route::resource('/datapasien', DataPasienController::class)->names('datapasien')->middleware('auth');
 
 Route::resource('/kelolapengguna', KelolaPenggunaController::class)->names('kelolaPengguna')->middleware('auth');
+
+Route::post('/patientStore', [DataPasienController::class, 'store'])->name('pasien.store');
