@@ -18,52 +18,64 @@
     
 </head>
 <body>
-    <div id="app" class = "d-flex">
-        <div class="d-flex flex-column flex-shrink-0 p-3 " style="width: 280px; background-color: rgba(19, 39, 104, 1);">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+    <div id="app" class="d-flex">
+        <!-- Sidebar -->
+        <div class="d-flex flex-column p-3 vh-100 sidebar" style="background-color: rgba(19, 39, 104, 1);">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none pe-5">
                 <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                <span class="fs-4"><img src="/img/logo.png" alt=""></span>
+                <span class="fs-6"><img src="/img/logo.png" alt=""></span>
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                <a href="#" class="nav-link d-flex align-items-center gap-2 text-white " aria-current="page">
-                    <img src="/img/home.png" alt="">
-                    Beranda
-                </a>
+                    <a href="{{ route('dashboardDokter') }}" class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
+                        <img src="/img/home.png" alt="">
+                        Beranda
+                    </a>
                 </li>
+                <br>
+                @if(Auth::user()->role !== 'pasien')
                 <li>
-                <a href="#" class="nav-link d-flex align-items-center gap-2 text-white " aria-current="page">
-                <img src="/img/people.png" alt="">
-                    Pasien
-                </a>
+                    <a href="{{ route('datapasien.index') }}" class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
+                        <img src="/img/people.png" alt="">
+                        Pasien
+                    </a>
                 </li>
-
+                @endif
+                @if(Auth::user()->role === 'admin')
+                <li>
+                    <a href="{{ route('kelolaPengguna.index') }}" class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
+                        <img src="/img/people.png" alt="">
+                        Kelola Pengguna
+                    </a>
+                </li>
+                @endif
             </ul>
             <hr>
             <div class="dropdown">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src= "/img/profile.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                <!-- <strong>mdo</strong> -->
+                    <img src="/img/profile.png" alt="" width="32" height="32" class="rounded-circle me-2">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Log out</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>
-            <div><header class="site-header">
+        <!-- Main content -->
+        <div class="flex-grow-1">
+            <header class="site-header">
                 <div class="container">
                     <div class="site-header-inner">
-                        <div class="brand header-brand ">
-                            <div class="title">
-                            <h1 class=" fs-4" >
-                                Halo, Dr Andri! 
-                            </h1>
+                        <div class="brand header-brand">
+                            <div class="title mt-4">
+                                <h1 class="fs-4">Halo, {{ Auth::user()->name }}!</h1> <!-- Ganti dengan sapaan sesuai nama pengguna yang sedang login -->
                             </div>
-                            <p style="font-size: small;color:grey" >Selamat Datang, Selamat Beraktivitas</p>
+                            <p style="font-size: small; color: grey">Selamat Datang, Selamat Beraktivitas</p>
                             <hr>
                         </div>
                     </div>
@@ -74,6 +86,13 @@
             </main>
         </div>
     </div>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+    
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

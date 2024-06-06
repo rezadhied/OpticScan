@@ -7,57 +7,48 @@
     <title>LOGIN</title>
 </head>
 
-<img style="height: 740px; width: 750px" src="/img/login.jpg" class="rounded float-start" alt="...">
-
-<div class="bg-Light">
-<div class="row">
-    <div class="text-end">
-    <p><a href="#" class="link-underline">Kembali ke Beranda</a></p>
-    </div>
-    <div class="col-md-12 justify-content-end">
-        <div style="padding:35px;">
-            <div class="text-start">
-                <h1>Login</h1>
-                <h8 style="font-weight: lighter;">belum punya akun? <a href="daftar-sekarang.html" style="text-decoration: underline; font-weight: bold;">Daftar Sekarang</a> </h8 > <br><br><br>
-            </div>            
-            <h5>Username atau email</h5>
-            <form >
-                <div class="form-group row">
-                    <input type="text" class="form-control form-control-user fw-light" id="text" placeholder="Username">
-                </div><br>
-                <h5>Password</h5>
-                <div class="form-group row">
-                    <input type="password" class="form-control form-control-user fw-light" id="password" placeholder="Password">
-                </div><br>
-                <div class="text-end">
+<body class="vh-100 overflow-hidden">
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center vh-100">
+            <div class="col-md-6 d-none d-md-block p-0">
+                <img src="/img/login.jpg" class="img-fluid w-100" alt="...">
+            </div>
+            <div class="col-md-6 p-4">
+                <div class="d-flex justify-content-center">
+                    <img src="/img/logo2.png" class="justify-content-center"
+                        style="width: 400px; height: 400x;">
+                </div>
+                <div class="text-start">
+                    <h1 style="color: #132768; font-size: 60px;">Login</h1>
+                    <h8 style="font-weight: lighter; color: #132768;">belum punya akun? <a href="/register"
+                            style="text-decoration: underline; font-weight: bold;">Daftar Sekarang</a></h8><br><br><br>
+                </div>
+                <h5 style="color: #132768;">Username atau email</h5>
+                <form method="POST" action="{{ route('login.post') }}" style="color: #132768;">
+                    @csrf
+                    <div class="form-group">
+                        <input type="text" name="username" class="form-control form-control-user fw-light" id="username"
+                            placeholder="Username or Email">
+                    </div><br>
+                    <h5>Password</h5>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control form-control-user fw-light" id="password"
+                            placeholder="Password">
+                    </div><br>
+                    <div class="text-end">
                         <a href="forgot-password.html">Lupa Password?</a>
-                </div><br>
-                <div class="form-group row">
-                    <a id="loginButton"onclick="submit()" class="btn btn-secondary btn-user btn-block rounded-5 d-grid gap-2" style="background-color: #132768; font-size: 20px;">
-                        Login 
-                    </a>
-                </div>
-                <div><br>
-                    <h6 class="text-center">Atau</h6>
-                </div>
-                <div class="form-group row">
-                    <a id="loginButton"onclick="submit()" class="btn btn-secondary btn-user btn-block rounded-5 d-grid gap-2"   >
-                        <i class="fab fa-google"></i> Lanjutkan dengan Google
-                    </a>
-                </div><br>
-                <div class="form-group row">
-                    <a id="loginButton"onclick="submit()" class="btn btn-secondary btn-user btn-block rounded-5 d-grid gap-2">
-                        <i class="fab fa-facebook"></i> Lanjutkan dengan Facebook
-                    </a>
-                </div>                
-                <div><br>
-            </form>
+                    </div><br>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-secondary btn-user btn-block rounded-5 d-grid gap-2"
+                            style="background-color: #132768; font-size: 20px;">
+                            Login
+                        </button>
+                    </div>
+                </form>
+                
+            </div>
         </div>
     </div>
-    <div class="col-md-5 loginbg">
-    </div>
-</div>
-</div>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
