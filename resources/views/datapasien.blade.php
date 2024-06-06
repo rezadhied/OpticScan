@@ -35,6 +35,19 @@
     .btn-primary:hover .button-text {
         color: white;
     }
+    .selected-item {
+        color: white;
+        background-color: black;
+    }
+    .btn-danger {
+        background-color: red;
+    }
+    .btn-warning {
+        background-color: yellow;
+    }
+    .btn-success {
+        background-color: green;
+    }
     </style>
     
 </head>
@@ -120,13 +133,15 @@
                                                     Pilih Status
                                                 </button>
                                                 <ul class="dropdown-menu w-auto h-full px-3" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" onclick="setStatus('Follow up Examination', 'btn-danger')">Follow up Examination</a>
-                                                    <a class="dropdown-item" onclick="setStatus('Continued Treatment', 'btn-warning')">Continued Treatment</a>
-                                                    <a class="dropdown-item color: white" onclick="setStatus('Recover', 'btn-success')">Recover</a>
+                                                    <button type="button" class="dropdown-item" onclick="setStatus('Follow up Examination', 'btn-danger')">Follow up Examination</button>
+                                                    <button type="button" class="dropdown-item" onclick="setStatus('Continued Treatment', 'btn-warning')">Continued Treatment</button>
+                                                    <button type="button" class="dropdown-item" onclick="setStatus('Recover', 'btn-success')">Recover</button>
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div id="selectedStatus" class="col-auto w-50 pt-3"></div>
+                                        <div id="selectedStatus" class="col-auto w-50 pt-3">
+                                            <!-- Button yang dipilih akan ditampilkan di sini -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -145,13 +160,13 @@
     <script>
         function setStatus(status, btnClass) {
             var selectedStatus = document.getElementById('selectedStatus');
-            selectedStatus.innerHTML = '<a class="dropdown-item" href="#" onclick="selectStatus(\'' + status + '\', \'' + btnClass + '\')">' + status + '</a>';
+            selectedStatus.innerHTML = '<button type="button" class="btn ' + btnClass + ' selected-item" onclick="selectStatus(\'' + status + '\', \'' + btnClass + '\')">' + status + '</button>'
         }
         function selectStatus(status, btnClass) {
             var selectedStatus = document.getElementById('selectedStatus');
-            selectedStatus.innerHTML = '<button type="button" class="btn ' + btnClass + ' selected-button">' + status + '</button>';
+            selectedStatus.innerHTML = '<button type="button" class="btn ' + btnClass + ' selected-item" onclick="selectStatus(\'' + status + '\', \'' + btnClass + '\')">' + status + '</button>'
         }
-    </script>
 
-</body>
+    </script>
+    </body>
 </html>
