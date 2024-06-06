@@ -100,54 +100,35 @@
                 </div>
                 <div class="modal-body">
                     <div class="container">
-                        <form class="row g-4">
+                        <form class="row g-4" action="{{ route('pasien.store') }}" method="POST" enctype="multipart/form-data">
                             <div class="col-12 col-sm-6">
                                 <div class="mt-4">
-                                    <label for="nama" class="form-label">Nama Lengkap</label>
-                                    <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama Lengkap Pasien">
+                                    <label for="patient_name" class="form-label">Nama Pasien</label>
+                                    <input type="text" class="form-control" id="patient_name" placeholder="Masukkan Nama Lengkap Pasien">
                                 </div>
                                 <div class="mt-4">
-                                    <label for="NomorHP" class="form-label">Nomor HP</label>
-                                    <input type="text" class="form-control" id="NomorHP" placeholder="Masukkan Nomor Handphone">
+                                    <label for="phone" class="form-label">Nomor HP</label>
+                                    <input type="number" class="form-control" id="phone" placeholder="Masukkan Nomor Handphone">
                                 </div>
                                 <div class="mt-4">
-                                    <label for="TanggalDaftar" class="form-label">Tanggal Daftar</label>
-                                    <input type="date" class="form-control" id="TanggalDaftar">
+                                    <label for="register_date" class="form-label">Tanggal Daftar</label>
+                                    <input type="date" class="form-control" id="register_date">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="mt-4">
-                                    <label for="Dokter" class="form-label">Dokter</label>
-                                    <input type="text" class="form-control" id="Dokter" placeholder="Masukkan Nama Anda">
-                                </div>
-                                <div class="mt-4">
-                                    <label for="Diagnosa" class="form-label">Diagnosa</label>
-                                    <input type="text" class="form-control" id="Diagnosa" placeholder="Masukkan Diagnosa Pasien">
-                                </div>
-                                <div class="">
-                                    <div class="row align-items-center mt-4">
-                                        <div class="col">
-                                            <label for="Status" class="form-label">Status</label>
-                                            <div class="dropdown">
-                                                <button class="btn btn-secondary dropdown-toggle rounded-pill w-100" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Pilih Status
-                                                </button>
-                                                <ul class="dropdown-menu w-auto h-full px-3" aria-labelledby="dropdownMenuButton">
-                                                    <button type="button" class="dropdown-item" onclick="setStatus('Follow up Examination', 'btn-danger')">Follow up Examination</button>
-                                                    <button type="button" class="dropdown-item" onclick="setStatus('Continued Treatment', 'btn-warning')">Continued Treatment</button>
-                                                    <button type="button" class="dropdown-item" onclick="setStatus('Recover', 'btn-success')">Recover</button>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div id="selectedStatus" class="col-auto w-50 pt-3">
-                                            <!-- Button yang dipilih akan ditampilkan di sini -->
-                                        </div>
-                                    </div>
-                                </div>
+                                    <label for="patient_id" class="form-label">ID Pasien</label>
+                                    <input type="number" class="form-control" id="patient_id" placeholder="Masukkan Nama Anda">
+                                  </div>
+                                  <div class="mt-4">
+                                    <label for="diagnosis_image" class="form-label">Upload Gambar Diagnosa</label>
+                                    <input type="file" class="form-control" id="diagnosis_image" name="diagnosis_image">
+                                    <p class="text-muted">**Format file yang didukung: jpg, png**</p>
+                                  </div>
                             </div>
                         </form>
                         <div class="mt-4">
-                            <button class="btn btn-success me-3 w-9">Save</button>
+                            <button class="btn btn-success me-3 w-9" type="submit">Save</button>
                             <button class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                         </div>
                     </div>

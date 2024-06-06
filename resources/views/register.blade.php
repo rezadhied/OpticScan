@@ -6,7 +6,6 @@
   <title>Register</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <style>
-    /* Custom CSS for styling */
     .border-secondary-subtle {
       border-color: rgba(0, 0, 0, 0.125);
     }
@@ -14,7 +13,7 @@
       opacity: 0.25;
     }
     .card {
-      border-radius: 25px; /* Adjust the border radius as needed */
+      border-radius: 25px;
     }
   </style>
 </head>
@@ -43,14 +42,14 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="name">Username</label>
+                <label for="Uname">Username</label>
                 <input type="text" class="form-control border-secondary-subtle" id="Uname" name="Uname" placeholder="Masukkan username" value="{{ old('Uname') }}">
                 @error('Uname')
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="name">Tanggal Lahir</label>
+                <label for="ttl">Tanggal Lahir</label>
                 <input type="date" class="form-control border-secondary-subtle" id="ttl" name="ttl" placeholder="Masukkan tanggal lahir anda" value="{{ old('ttl') }}">
                 @error('ttl')
                   <div class="text-danger">{{ $message }}</div>
@@ -71,16 +70,22 @@
                 @enderror
               </div>
               <div class="mb-1">
-                <label for="pass">Password</label>
-                <input type="password" class="form-control border-secondary-subtle" id="pass" name="password" placeholder="Masukkan password">
+                <label for="password">Password</label>
+                <input type="password" class="form-control border-secondary-subtle" id="password" name="password" placeholder="Masukkan password">
                 @error('password')
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
               </div>
-              <span class="text-secondary " style="font-size: small">Gunakan 8 karakter atau lebih dengan campuran huruf, angka & simbol</span>
+              <div class="mb-1">
+                <label for="password_confirmation">Konfirmasi Password</label>
+                <input type="password" class="form-control border-secondary-subtle" id="password_confirmation" name="password_confirmation" placeholder="Masukkan ulang password">
+                @error('password_confirmation')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
+              </div>
+              <span class="text-secondary" style="font-size: small">Gunakan 8 karakter atau lebih dengan campuran huruf, angka & simbol</span>
               <br><br>
               <button class="btn btn-primary" type="submit">Buat Akun</button>
-              
             </form>
           </div>
         </div>
