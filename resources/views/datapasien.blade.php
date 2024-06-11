@@ -50,8 +50,10 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>Nama Lengkap</th>
+                                <th>ID Pasien</th>
+                                <th>Nama Pasien</th>
                                 <th>No HP</th>
+                                <th>Nama Dokter</th>
                                 <th>Tanggal Daftar</th>
                                 <th>Diagnosa</th>
                                 <th>Status</th>
@@ -59,14 +61,18 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($reports as $report)
                             <tr>
-                                <td>Rizky Pratama</td>
-                                <td>7305477760</td>
-                                <td>03/12/2024</td>
-                                <td>Katarak</td>
-                                <td>Follow-Up Examination</td>
+                                <td>{{ $report->patient_id }}</td>
+                                <td>{{ $report->patient->name }}</td>
+                                <td>{{ $report->patient->phone }}</td>
+                                <td>{{ $report->doctor->user->name }}</td>
+                                <td>{{ $report->register_date }}</td>
+                                <td>{{ $report->diagnose }}</td>
+                                <td>{{ $report->test_status }}</td>
                                 <td>i</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

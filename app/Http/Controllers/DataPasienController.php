@@ -14,7 +14,8 @@ class DataPasienController extends Controller
 {
     public function index()
     {
-        return view('datapasien');
+        $reports = Report::with(['patient', 'doctor'])->get();
+        return view('datapasien', compact('reports'));
     }
 
     public function create()
