@@ -9,24 +9,28 @@ use App\Models\PatientReport;
 use App\Models\Report;
 use App\Models\ReportData;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class DataPasienController extends Controller
 {
-    
     public function index()
     {
         return view('datapasien');
     }
 
-    public function store(CreatePatientRequest $request)
+    public function create()
+    {
+        return view('formpasien');
+    }
+
+    public function storePatient(CreatePatientRequest $request)
     {
         $user = Auth::user();
+
         // Cari user dengan role 'pasien' berdasarkan patient_phone
         $patientUser = ModelUser::where('phone', $request->patient_phone)->where('role', 'pasien')->first();
 
         if (!$patientUser) {
-            return response()->json(['message' => 'Pasien tidak ditemukan'], 404);
+            return redirect()->back()->withErrors(['patient_phone' => 'Pasien tidak ditemukan']);
         }
 
         // Simpan data pasien di table patient_report
@@ -58,6 +62,6 @@ class DataPasienController extends Controller
             ]);
         }
 
-        return response()->json(['message' => 'Data pasien berhasil disimpan']);
+        return redirect('/datapasien')->with('alert', 'Data pasien berhasil disimpan');
     }
 }
