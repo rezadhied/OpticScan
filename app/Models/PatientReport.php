@@ -8,6 +8,8 @@ class PatientReport extends Model
 {
     use HasFactory;
 
+    protected $table = 'patient_reports'; 
+
     protected $primaryKey = 'patient_id';
 
     protected $fillable = [

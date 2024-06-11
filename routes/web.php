@@ -26,4 +26,7 @@ Route::resource('/datapasien', DataPasienController::class)->names('datapasien')
 
 Route::resource('/kelolapengguna', KelolaPenggunaController::class)->names('kelolaPengguna')->middleware('auth');
 
-Route::post('/patientStore', [DataPasienController::class, 'store'])->name('pasien.store');
+Route::post('/storePatient', [DataPasienController::class, 'storePatient'])->name('patient.store');
+
+//Route::get('/patients', [DataPasienController::class, 'index'])->name('patient.index');
+Route::get('/patients/create', [DataPasienController::class, 'create'])->name('patient.create');

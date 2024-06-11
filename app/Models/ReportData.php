@@ -8,6 +8,8 @@ class ReportData extends Model
 {
     use HasFactory;
 
+    protected $table = 'report_data'; 
+    
     protected $primaryKey = 'data_id';
 
     protected $fillable = [
