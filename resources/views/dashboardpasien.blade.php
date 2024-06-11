@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!doctype html>
 <html lang="en">
 <head>
@@ -24,7 +27,11 @@
                 Selamat datang di OpticScan.. Dengan teknologi canggih dan perawatan yang dipersonalisasi. Kami menawarkan pemeriksaan mata yang tepat dan solusi yang disesuaikan. Temukan kejelasan dan kepercayaan diri dengan OpticScan hari ini
             </h5>
             <div class="d-flex justify-content-start">
-                <button class="rounded-lg btn-lg" style="background-color: #081445; color: white; font-size: 20px; font-weight: 600; margin-top: 20px;">Lihat Riwayat</button>
+                <a href="{{ route('infopenyakit') }}">
+                    <button class="rounded-lg btn-lg" style="background-color: #081445; color: white; font-size: 20px; font-weight: 600; margin-top: 20px;">
+                        Lihat Riwayat
+                    </button>
+                </a>
             </div>
         </div>
     </div>
@@ -36,8 +43,13 @@
             <h1 style="font-weight: bolder;">Deteksi Dini untuk Penyakit Mata (OpticScan)</h1>
             <h5 style="font-weight: lighter;">OpticScan merupakan aplikasi terintegrasi dengan AI untuk mendeteksi penyakit mata</h5>
             <div class="d-flex justify-content-center" style="margin-top: 20px;">
-                <button class="rounded-lg btn-lg" style="background-color: #D9D9D9; color: #132768; font-size: 20px; font-weight: 600; margin-top: 70px;">Tentang Kami</button>
+                <a href="{{ route('tkami') }}">
+                    <button class="rounded-lg btn-lg" style="background-color: #D9D9D9; color: #132768; font-size: 20px; font-weight: 600; margin-top: 70px;">
+                        Tentang Kami
+                    </button>
+                </a>
             </div>
+            
         </div>
     </div>
 </div>
@@ -146,7 +158,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div><br>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
@@ -162,7 +174,6 @@
 
 
 <div class="container-fluid" style="background-color: #132768; padding: 50px;">
-    <img src="/img/logo.png" style="width: 250px; height: 90px;" alt="">
     <div class="text-center text-light">
         <h1 style="color: white;">Memanen Kecerdasan dari Algoritma</h1>
         <h1 style="color: white;">Merintis Masa Depan AI</h1>
@@ -180,3 +191,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
+@endsection
