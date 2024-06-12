@@ -113,6 +113,8 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <span class="text-secondary" style="font-size: small">Gunakan 8 karakter atau lebih dengan
+                                campuran huruf, angka & simbol</span>
                             <div class="mb-1">
                                 <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
                                 <input type="password" class="form-control border-secondary-subtle"
@@ -122,8 +124,6 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <span class="text-secondary" style="font-size: small">Gunakan 8 karakter atau lebih dengan
-                                campuran huruf, angka & simbol</span>
                             <br><br>
                             <button class="btn btn-primary" type="submit">Buat Akun</button>
                         </form>

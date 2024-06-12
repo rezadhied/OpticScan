@@ -10,6 +10,11 @@ use App\Http\Controllers\DataPasienController;
 use App\Http\Controllers\DiagnosisController;
 use App\Http\Controllers\InputDataPasien;
 use App\Http\Controllers\KelolaPenggunaController;
+use App\Http\Controllers\DetailPenyakitController;
+use App\Http\Controllers\InfoPenyakitController;
+use App\Http\Controllers\TentangKamiController;
+use App\Http\Controllers\SetelanController;
+use App\Http\Controllers\DetailPenyakitControllerController;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboardDokter')->middleware('auth');
 

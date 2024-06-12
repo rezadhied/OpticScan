@@ -36,7 +36,7 @@
                                     <h8 style="font-weight: lighter; color: #132768;">Belum punya akun? <a href="/register"
                                             style="text-decoration: underline; font-weight: bold;">Daftar Sekarang</a></h8><br><br><br>
                                 </div>
-                                <h5 style="color: #132768;">Username atau Email</h5>
+                                <h5 style="color: #132768;">Username</h5>
                                 <form method="POST" action="{{ route('login.post') }}" style="color: #132768;">
                                     @csrf
                                     <div class="form-group mb-3">
