@@ -55,13 +55,12 @@
 
 
 <div class="container-fluid" style="background-color: #2a4499; padding: 50px;">
-    <img src="assets/image/logo.png" style="width: 250px; height: 90px;" alt="">
     <div class="text-center text-light">
         <h1 style="color: white;">Memanen Kecerdasan dari Algoritma</h1>
         <h1 style="color: white;">Merintis Masa Depan AI</h1>
         <p class="nav-item active" style="border-bottom: 1px solid white;"></p>
         <h3 style="color: white; font-size: medium; text-align: center;">© 2024 OpticScan. All rights reserved.</h3>
-    </div>    
+    </div>
 </div>
 
 

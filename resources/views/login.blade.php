@@ -24,35 +24,40 @@
                 <div class="card shadow p-4">
                     <div class="row g-0">
                         <div class="col-md-6">
-                            <img src="/img/login.jpg" class="img-fluid h-100" alt="Login Image" style="border-radius: 25px 0 0 25px;">
+                            <img src="/img/login.jpg" class="img-fluid h-100"
+                                alt="Login Image" style="border-radius: 25px 0 0 25px;">
                         </div>
                         <div class="col-md-6">
                             <div class="card-body">
-                                <div class="d-flex justify-content-center">
-                                    <img src="/img/logo2.png" class="img-fluid mb-3" alt="Logo" style="width: 200px; height: auto;">
-                                </div>
                                 <div class="text-start mt-3">
-                                    <h1 style="color: #132768; font-size: 45px;">Login</h1>
-                                    <h8 style="font-weight: lighter; color: #132768;">Belum punya akun? <a href="/register"
+                                    <h1 class="justify-center align-content-lg-center"
+                                        style="color: #132768; font-size: 45px;">Login</h1>
+                                    <h8 style="font-weight: lighter; color: #132768;">Belum punya akun? <a
+                                            href="/register"
                                             style="text-decoration: underline; font-weight: bold;">Daftar Sekarang</a></h8><br><br><br>
                                 </div>
+                                @if (session('alert'))
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ session('alert') }}
+                                    </div>
+                                @endif
                                 <h5 style="color: #132768;">Username</h5>
                                 <form method="POST" action="{{ route('login.post') }}" style="color: #132768;">
                                     @csrf
                                     <div class="form-group mb-3">
-                                        <input type="text" name="username" class="form-control form-control-user fw-light" id="username"
-                                            placeholder="Username atau Email">
+                                        <input type="text" name="username" class="form-control form-control-user fw-light"
+                                            id="username" placeholder="Username atau Email"
+                                            value="{{ old('username') }}">
                                     </div>
                                     <h5>Password</h5>
                                     <div class="form-group mb-3">
-                                        <input type="password" name="password" class="form-control form-control-user fw-light" id="password"
+                                        <input type="password" name="password"
+                                            class="form-control form-control-user fw-light" id="password"
                                             placeholder="Password">
                                     </div>
-                                    <div class="text-end mb-3">
-                                        <a href="forgot-password.html">Lupa Password?</a>
-                                    </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-secondary btn-user btn-block rounded-5 d-grid gap-2 w-100"
+                                        <button type="submit"
+                                            class="btn btn-secondary btn-user btn-block rounded-5 d-grid gap-2 w-100 mt-5"
                                             style="background-color: #132768; font-size: 20px;">
                                             Login
                                         </button>
