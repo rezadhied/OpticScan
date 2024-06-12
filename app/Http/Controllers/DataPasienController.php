@@ -9,12 +9,16 @@ use App\Models\PatientReport;
 use App\Models\Report;
 use App\Models\ReportData;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\DiagnosisController;
 
 class DataPasienController extends Controller
 {
+
     public function index()
     {
-        $reports = Report::with(['patient', 'doctor'])->get();
+        $reports = Report::with(['patient', 'doctor', 'reportData'])->get();
         return view('datapasien', compact('reports'));
     }
 
@@ -26,6 +30,7 @@ class DataPasienController extends Controller
     public function storePatient(CreatePatientRequest $request)
     {
         $user = Auth::user();
+        $diagnosisController = new DiagnosisController();
 
         // Cari user dengan role 'pasien' berdasarkan patient_phone
         $patientUser = ModelUser::where('phone', $request->patient_phone)->where('role', 'pasien')->first();
@@ -57,12 +62,15 @@ class DataPasienController extends Controller
         if ($request->hasFile('photo')) {
             $path = $request->file('photo')->store('photos', 'public');
 
-            ReportData::create([
+            $reportData = ReportData::create([
                 'report_id' => $report->report_id,
                 'filepath' => $path,
             ]);
+
+            $diagnosisController->callDiagnosisAPI($report, $reportData->filepath);
         }
 
         return redirect('/datapasien')->with('alert', 'Data pasien berhasil disimpan');
     }
+
 }

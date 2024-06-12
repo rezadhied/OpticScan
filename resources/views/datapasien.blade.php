@@ -1,5 +1,4 @@
 <!-- resources/views/datapasien.blade.php -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,6 +45,16 @@
     <div class="container">
         <div class="row">
             <div class="col-md-15">
+                <div class="d-flex justify-content-between mb-3">
+                    <a href="{{ route('patient.create') }}" class="btn btn-primary">
+                        <img src="img/add-user.png" alt="Icon" class="button-img">
+                        <span class="ms-1 button-text">Tambah Pasien</span>
+                    </a>
+                    <a href="{{ route('patients.diagnose-all') }}" class="btn btn-primary">
+                        <img src="img/refresh.png" alt="Icon" class="button-img">
+                        <span class="ms-1 button-text">Refresh Diagnosa</span>
+                    </a>
+                </div>
                 <div class="card">
                     <table class="table table-striped table-hover">
                         <thead>
@@ -75,12 +84,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                </div>
-                <div class="col mt-2">
-                    <a href="{{ route('patient.create') }}" class="btn btn-primary">
-                        <img src="img/add-user.png" alt="Icon" class="button-img">
-                        <span class="ms-1 button-text">Tambah Pasien</span>
-                    </a>
                 </div>
             </div>
         </div>
