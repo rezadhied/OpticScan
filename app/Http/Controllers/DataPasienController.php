@@ -37,7 +37,7 @@ class DataPasienController extends Controller
         $patientReport = PatientReport::create([
             'patient_id' => $request->patient_id,
             'user_id' => $user->id,
-            'report_id' => null, // Sementara kosong, akan diupdate setelah report dibuat
+            'report_id' => 1, // Sementara kosong, akan diupdate setelah report dibuat
         ]);
 
         // Simpan data report di table reports
