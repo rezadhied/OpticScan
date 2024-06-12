@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!doctype html>
 <html lang="en">
 <head>
@@ -60,7 +63,6 @@
 
 
 <div class="container-fluid" style="background-color: #132768; padding: 50px;">
-    <img src="/img/logo.png" style="width: 250px; height: 90px;" alt="">
     <div class="text-center text-light">
         <h1 style="color: white;">Memanen Kecerdasan dari Algoritma</h1>
         <h1 style="color: white;">Merintis Masa Depan AI</h1>
@@ -78,3 +80,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
+@endsection
