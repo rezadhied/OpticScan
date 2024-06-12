@@ -1,5 +1,4 @@
 <!-- resources/views/datapasien.blade.php -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,12 +45,24 @@
     <div class="container">
         <div class="row">
             <div class="col-md-15">
+                <div class="d-flex justify-content-between mb-3">
+                    <a href="{{ route('patient.create') }}" class="btn btn-primary">
+                        <img src="img/add-user.png" alt="Icon" class="button-img">
+                        <span class="ms-1 button-text">Tambah Pasien</span>
+                    </a>
+                    <a href="{{ route('patients.diagnose-all') }}" class="btn btn-primary">
+                        <img src="img/refresh.png" alt="Icon" class="button-img">
+                        <span class="ms-1 button-text">Refresh Diagnosa</span>
+                    </a>
+                </div>
                 <div class="card">
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>Nama Lengkap</th>
+                                <th>ID Pasien</th>
+                                <th>Nama Pasien</th>
                                 <th>No HP</th>
+                                <th>Nama Dokter</th>
                                 <th>Tanggal Daftar</th>
                                 <th>Diagnosa</th>
                                 <th>Status</th>
@@ -59,22 +70,20 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($reports as $report)
                             <tr>
-                                <td>Rizky Pratama</td>
-                                <td>7305477760</td>
-                                <td>03/12/2024</td>
-                                <td>Katarak</td>
-                                <td>Follow-Up Examination</td>
+                                <td>{{ $report->patient_id }}</td>
+                                <td>{{ $report->patient->name }}</td>
+                                <td>{{ $report->patient->phone }}</td>
+                                <td>{{ $report->doctor->user->name }}</td>
+                                <td>{{ $report->register_date }}</td>
+                                <td>{{ $report->diagnose }}</td>
+                                <td>{{ $report->test_status }}</td>
                                 <td>i</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
-                </div>
-                <div class="col mt-2">
-                    <a href="{{ route('patient.create') }}" class="btn btn-primary">
-                        <img src="img/add-user.png" alt="Icon" class="button-img">
-                        <span class="ms-1 button-text">Tambah Pasien</span>
-                    </a>
                 </div>
             </div>
         </div>

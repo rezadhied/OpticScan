@@ -20,6 +20,16 @@ class Report extends Model
         'diagnose',
     ];
 
+    public function patient()
+    {
+        return $this->belongsTo(ModelUser::class, 'user_id', 'id'); // patient relationship
+    }
+
+    public function doctor()
+    {
+        return $this->belongsTo(PatientReport::class, 'patient_id', 'patient_id'); // doctor relationship in patient_reports table
+    }
+
     public function user()
     {
         return $this->belongsTo(ModelUser::class, 'user_id', 'id');
