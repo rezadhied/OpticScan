@@ -13,7 +13,7 @@ class PatientReport extends Model
     protected $primaryKey = 'patient_id';
 
     protected $fillable = [
-        'user_id',
+        'user_id', //doctor id
         'report_id',
     ];
 

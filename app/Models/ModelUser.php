@@ -17,7 +17,7 @@ class ModelUser extends Authenticatable
         'username',
         'email',
         'password',
-        // sesuaikan atribut fillable dengan kolom yang sesuai di tabel Anda
+        'birthdate',
     ];
 
     protected $hidden = [
@@ -25,5 +25,15 @@ class ModelUser extends Authenticatable
         'remember_token',
         // tambahkan atribut yang perlu disembunyikan (jika ada)
     ];
+
+    public function reports()
+    {
+        return $this->hasMany(Report::class, 'user_id', 'id');
+    }
+
+    public function patientReports()
+    {
+        return $this->hasMany(PatientReport::class, 'user_id', 'id');
+    }
 }
 
