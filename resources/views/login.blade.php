@@ -55,9 +55,14 @@
                                             class="form-control form-control-user fw-light" id="password"
                                             placeholder="Password">
                                     </div>
+                                    @if ($errors->has('alert'))
+                                    <div class="alert alert-danger" role="alert">
+                                    {{ $errors->first('alert') }}
+                                </div>
+                                @endif
                                     <div class="form-group">
                                         <button type="submit"
-                                            class="btn btn-secondary btn-user btn-block rounded-5 d-grid gap-2 w-100 mt-5"
+                                            class="btn btn-secondary btn-user btn-block rounded-5 d-grid gap-2 w-100 mt-3"
                                             style="background-color: #132768; font-size: 20px;">
                                             Login
                                         </button>
