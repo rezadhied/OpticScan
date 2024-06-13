@@ -1,6 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,8 +8,13 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <title>DASHBOARD</title>
+    <title>Beranda</title>
 </head>
+
+@extends('layouts.app')
+
+@section('content')
+
 <body>
 <div class="container-fluid mt-5 p-4 rounded-lg" style="background-color: #132768; border-radius: 20px;">
     <div class="row">
