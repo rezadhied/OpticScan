@@ -62,7 +62,7 @@
         <div class="d-flex flex-column sidebar">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none pe-5">
                 <svg class="bi pe-none me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap"></use>q
+                    <use xlink:href="#bootstrap"></use>
                 </svg>
                 <span class="fs-6"><img src="/img/logo.png" alt=""></span>
             </a>
@@ -70,20 +70,22 @@
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
                     <a href="{{ Auth::user()->role === 'dokter' ? route('dashboardDokter') : route('dashboardpasien') }}"
-                        class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
+                        class="nav-link d-flex align-items-center gap-2 text-white {{ request()->routeIs('dashboardDokter', 'dashboardpasien') ? 'active' : '' }}"
+                        aria-current="page">
                         <img src="/img/home.png" alt="">
                         Beranda
                     </a>
                     @if (Auth::user()->role === 'pasien')
                     <a href="{{ route('infopenyakit') }}"
-                    class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page" {{ request()->routeIs('infopenyakit') ? 'active' : '' }}"
+                        class="nav-link d-flex align-items-center gap-2 text-white {{ request()->routeIs('infopenyakit') ? 'active' : '' }}"
                         style="padding-top: 10px; padding-bottom: 10px;">
                         <img src="/img/riwayat.png" alt="Riwayat">
                         Riwayat
                     </a>
                     @endif
-                    <a href="{{ route('tkami') }}" class="nav-link d-flex align-items-center gap-2 text-white"
-                        aria-current="page" style="padding-top: 10px; padding-bottom: 10px;">
+                    <a href="{{ route('tkami') }}"
+                        class="nav-link d-flex align-items-center gap-2 text-white {{ request()->routeIs('tkami') ? 'active' : '' }}"
+                        style="padding-top: 10px; padding-bottom: 10px;">
                         <img src="/img/team.png" alt="">
                         Tentang Kami
                     </a>
@@ -91,7 +93,8 @@
                 @if (Auth::user()->role === 'dokter')
                     <li>
                         <a href="{{ route('datapasien.index') }}"
-                            class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
+                            class="nav-link d-flex align-items-center gap-2 text-white {{ request()->routeIs('datapasien.index') ? 'active' : '' }}"
+                            aria-current="page">
                             <img src="/img/people.png" alt="Pasien">
                             Pasien
                         </a>
@@ -100,7 +103,8 @@
                 @if (Auth::user()->role === 'admin')
                     <li>
                         <a href="{{ route('admin.index') }}"
-                            class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page" {{ request()->routeIs('admin.index') ? 'active' : '' }}">
+                            @class(["nav-link d-flex align-items-center gap-2 text-white","active" => Route::currentRouteName() == "admin.index"])
+                            aria-current="page">
                             <img src="/img/people.png" alt="Kelola Pengguna">
                             Kelola Pengguna
                         </a>
@@ -110,7 +114,7 @@
             <hr>
             <div class="dropdown">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                    data-bs-toggle="dropdown" aria-current="page" >
+                    data-bs-toggle="dropdown" aria-current="page">
                     <img src="/img/profile.png" alt="Profile" width="32" height="32" class="rounded-circle me-2">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
