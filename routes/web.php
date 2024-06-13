@@ -1,11 +1,12 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\DataPasienController;
+use App\Http\Controllers\DiagnosisController;
 use App\Http\Controllers\InputDataPasien;
 use App\Http\Controllers\KelolaPenggunaController;
 
@@ -25,3 +26,10 @@ Route::get('/DataInput', [InputDataPasien::class, 'index'])->middleware('auth');
 Route::resource('/datapasien', DataPasienController::class)->names('datapasien')->middleware('auth');
 
 Route::resource('/kelolapengguna', KelolaPenggunaController::class)->names('kelolaPengguna')->middleware('auth');
+
+Route::post('/storePatient', [DataPasienController::class, 'storePatient'])->name('patient.store');
+
+//Route::get('/patients', [DataPasienController::class, 'index'])->name('patient.index');
+Route::get('/patients/create', [DataPasienController::class, 'create'])->name('patient.create');
+
+Route::get('/patients/diagnose-all', [DiagnosisController::class, 'diagnoseExistingPatients'])->name('patients.diagnose-all');
