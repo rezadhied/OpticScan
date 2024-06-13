@@ -93,12 +93,13 @@
     <script>
         function setStatus(status, btnClass) {
             var selectedStatus = document.getElementById('selectedStatus');
-            selectedStatus.innerHTML = '<a class="dropdown-item" href="#" onclick="selectStatus(\'' + status + '\', \'' + btnClass + '\')">' + status + '</a>';
+            selectedStatus.innerHTML = '<button type="button" class="btn ' + btnClass + ' selected-item" onclick="selectStatus(\'' + status + '\', \'' + btnClass + '\')">' + status + '</button>'
         }
         function selectStatus(status, btnClass) {
             var selectedStatus = document.getElementById('selectedStatus');
-            selectedStatus.innerHTML = '<button type="button" class="btn ' + btnClass + ' selected-button">' + status + '</button>';
+            selectedStatus.innerHTML = '<button type="button" class="btn ' + btnClass + ' selected-item" onclick="selectStatus(\'' + status + '\', \'' + btnClass + '\')">' + status + '</button>'
         }
+
     </script>
 </body>
 </html>
