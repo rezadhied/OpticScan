@@ -83,8 +83,7 @@
               </td>
               <td>
                 <a href="{{ route('detailpenyakit') }}" class="btn btn-primary rounded-lg"><i class="far fa-clipboard"></i></a>&nbsp;&nbsp;
-            </td>            
-          </tr>
+            </td>        
           <tr>
               <th scope="row">2</th>
               <td>Rizy Pratama</td>
