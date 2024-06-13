@@ -46,26 +46,29 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a href="{{ Auth::user()->role === 'dokter' ? route('dashboardDokter') : route('dashboardpasien') }}"
+                    <a href="{{ route('dashboardpasien') }}"
                         class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
                         <img src="/img/home.png" alt="">
                         Beranda
                     </a>
-                    @if (Auth::user()->role === 'pasien')
                     <a href="{{ route('infopenyakit') }}"
                         class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page"
                         style="padding-top: 10px; padding-bottom: 10px;">
                         <img src="/img/riwayat.png" alt="">
                         Riwayat
                     </a>
-                    @endif
                     <a href="{{ route('tkami') }}" class="nav-link d-flex align-items-center gap-2 text-white"
                         aria-current="page" style="padding-top: 10px; padding-bottom: 10px;">
                         <img src="/img/team.png" alt="">
                         Tentang Kami
                     </a>
+                    <a href="{{ route('setelan') }}" class="nav-link d-flex align-items-center gap-2 text-white"
+                        aria-current="page" style="padding-top: 10px; padding-bottom: 10px;">
+                        <img src="/img/setting.png" alt="" style="width: 25px; height: 25px;">
+                        Setelan
+                    </a>
                 </li>
-                @if (Auth::user()->role === 'dokter')
+                @if (Auth::user()->role !== 'pasien')
                     <li>
                         <a href="{{ route('datapasien.index') }}"
                             class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
@@ -76,7 +79,7 @@
                 @endif
                 @if (Auth::user()->role === 'admin')
                     <li>
-                        <a href="{{ route('admin.index') }}"
+                        <a href="{{ route('kelolaPengguna.index') }}"
                             class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
                             <img src="/img/people.png" alt="">
                             Kelola Pengguna

@@ -33,11 +33,7 @@
                             @csrf
                             <div class="col-12 col-sm-6">
                                 <div class="mt-4">
-                                    <label for="patient_name" class="form-label">Nama Pasien</label>
-                                    <input type="text" class="form-control" id="patient_name" name="patient_name" placeholder="Masukkan Nama Lengkap Pasien" required>
-                                </div>
-                                <div class="mt-4">
-                                    <label for="patient_phone" class="form-label">Nomor HP</label>
+                                    <label for="patient_phone" class="form-label">Nomor HP Pasien</label>
                                     <input type="text" class="form-control" id="patient_phone" name="patient_phone" placeholder="Masukkan Nomor Handphone" required>
                                 </div>
                                 <div class="mt-4">
@@ -46,10 +42,6 @@
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <div class="mt-4">
-                                    <label for="patient_id" class="form-label">ID Pasien</label>
-                                    <input type="text" class="form-control" id="patient_id" name="patient_id" placeholder="Masukkan ID Pasien" required>
-                                </div>
                                 <div class="mt-4">
                                     <label for="photo" class="form-label">Upload Gambar Diagnosa</label>
                                     <input type="file" class="form-control" id="photo" name="photo" required>
