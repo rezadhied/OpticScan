@@ -76,7 +76,7 @@
                     </a>
                     @if (Auth::user()->role === 'pasien')
                     <a href="{{ route('infopenyakit') }}"
-                        class="nav-link text-white mb-2 {{ request()->routeIs('infopenyakit') ? 'active' : '' }}"
+                    class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page" {{ request()->routeIs('infopenyakit') ? 'active' : '' }}"
                         style="padding-top: 10px; padding-bottom: 10px;">
                         <img src="/img/riwayat.png" alt="Riwayat">
                         Riwayat
@@ -92,25 +92,25 @@
                     <li>
                         <a href="{{ route('datapasien.index') }}"
                             class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
-                            <img src="/img/people.png" alt="">
+                            <img src="/img/people.png" alt="Pasien">
                             Pasien
                         </a>
                     </li>
                 @endif
                 @if (Auth::user()->role === 'admin')
-                <li>
-                    <a href="{{ route('admin.index') }}"
-                        class="nav-link text-white mb-2 {{ request()->routeIs('admin.index') ? 'active' : '' }}">
-                        <img src="/img/people.png" alt="List Dokter">
-                        List Dokter
-                    </a>
-                </li>
+                    <li>
+                        <a href="{{ route('admin.index') }}"
+                            class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page" {{ request()->routeIs('admin.index') ? 'active' : '' }}">
+                            <img src="/img/people.png" alt="Kelola Pengguna">
+                            Kelola Pengguna
+                        </a>
+                    </li>
                 @endif
             </ul>
             <hr>
             <div class="dropdown">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                    data-bs-toggle="dropdown" aria-current="page" >
                     <img src="/img/profile.png" alt="Profile" width="32" height="32" class="rounded-circle me-2">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
