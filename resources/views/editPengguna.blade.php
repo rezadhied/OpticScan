@@ -54,7 +54,7 @@
                                 <label for="birthdate" class="form-label">Birthdate</label>
                                 <input type="date" class="form-control" id="birthdate" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">Tambah Pengguna</button>
+                            <button type="submit" class="btn btn-primary">Simpan Data Pengguna</button>
                         </form>
                     </div>
                 </div>

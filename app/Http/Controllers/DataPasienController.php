@@ -73,4 +73,13 @@ class DataPasienController extends Controller
         return redirect('/datapasien')->with('alert', 'Data pasien berhasil disimpan');
     }
 
+    public function show($id)
+    {
+        $report = Report::with(['patient', 'doctor.user', 'reportData'])
+                        ->where('report_id', $id)
+                        ->firstOrFail();
+
+        return view('detailpenyakit', compact('report'));
+    }
+
 }

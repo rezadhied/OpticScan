@@ -29,11 +29,13 @@
                 kepercayaan diri dengan OpticScan hari ini.
             </h5>
             <div class="d-flex justify-content-start">
+                @if (Auth::user()->role === 'pasien')
                 <a href="{{ route('infopenyakit') }}">
                     <button type="button" class="btn btn-primary" style="background-color: #081445; color: white; font-size: 20px; font-weight: 600; margin-top: 20px;">
                         Lihat Riwayat
                     </button>
                 </a>
+                @endif
             </div>
         </div>
     </div>
@@ -55,11 +57,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
 
 
 <div class="container-fluid p-5" style="background-color: #132768; margin-top:100px ;">

@@ -16,8 +16,10 @@ class ModelUser extends Authenticatable
         'name',
         'username',
         'email',
-        'password',
+        'phone',
         'birthdate',
+        'password',
+        'role',
     ];
 
     protected $hidden = [
