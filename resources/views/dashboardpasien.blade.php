@@ -1,6 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <title>DASHBOARD</title>
+</head>
+<body>
 <div class="container-fluid mt-5 p-4 rounded-lg" style="background-color: #132768; border-radius: 20px;">
     <div class="row">
         <div class="col-md-6 order-md-2 d-flex justify-content-center align-items-center">
@@ -45,11 +58,12 @@
     </div>
 </div>
 
+
 <div class="container" style="padding: 20px; margin-top: 50px;">
     <div class="row">
         <div class="col text-center">
             <h1 style="font-weight: bolder;">Testimoni</h1>
-            <h5 style="font-weight: lighter;">Berbagai review positif dari pengguna website kami</h5>
+            <h5 class="rounded" style="font-weight: lighter;">Berbagai review positif dari pengguna website kami</h5>
         </div>
     </div>
 </div>
@@ -160,4 +174,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvY4IAKKJTikOwE3MCuSKSyGVNPhmR8fE92FN3wXAPJEBE2EsmCulO+v3SEoNnE" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgjAZIkEkLJm6gOtTDuvzsaft3eL5mt6I0cwl0AzV9SQ5FeG1O4" crossorigin="anonymous"></script>
 
+
 @endsection
+
