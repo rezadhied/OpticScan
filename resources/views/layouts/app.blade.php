@@ -51,19 +51,21 @@
                         <img src="/img/home.png" alt="">
                         Beranda
                     </a>
+                    @if (Auth::user()->role === 'pasien')
                     <a href="{{ route('infopenyakit') }}"
                         class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page"
                         style="padding-top: 10px; padding-bottom: 10px;">
                         <img src="/img/riwayat.png" alt="">
                         Riwayat
                     </a>
+                    @endif
                     <a href="{{ route('tkami') }}" class="nav-link d-flex align-items-center gap-2 text-white"
                         aria-current="page" style="padding-top: 10px; padding-bottom: 10px;">
                         <img src="/img/team.png" alt="">
                         Tentang Kami
                     </a>
                 </li>
-                @if (Auth::user()->role !== 'pasien')
+                @if (Auth::user()->role === 'dokter')
                     <li>
                         <a href="{{ route('datapasien.index') }}"
                             class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">

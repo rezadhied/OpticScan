@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
 
         // Pasien user
         ModelUser::create([
-            'name' => 'Pasien',
+            'name' => 'Raihan Adhie Kosasih',
             'username' => 'pasien',
             'email' => 'pasien@gmail.com',
             'phone' => '081234567891',
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
 
         // Dokter user
         ModelUser::create([
-            'name' => 'Dokter',
+            'name' => 'Dr. Marsya Yaafi',
             'username' => 'dokter',
             'email' => 'dokter@gmail.com',
             'phone' => '081234567892',
