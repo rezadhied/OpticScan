@@ -89,15 +89,34 @@
                                     <a href="{{ route('pengguna.edit', $user->id) }}" class="btn btn-outline-primary rounded-lg btnEdit btn-action">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
-                                    <form action="{{ route('pengguna.destroy', $user->id) }}" method="POST" style="display:inline-block;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger rounded-lg btn-action" onclick="return confirm('Apakah Anda yakin menghapus akun ini?')">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                    </form>
+                                    <button class="btn btn-danger rounded-lg btn-action" data-bs-toggle="modal" data-bs-target="#myModal_{{ $user->id }}">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
                                 </td>
                             </tr>
+                             <!-- Modal HTML -->
+                            <div class="modal fade" id="myModal_{{ $user->id }}" tabindex="-1" aria-labelledby="deleteModalLabel_{{ $user->id }}" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="deleteModalLabel_{{ $user->id }}">Konfirmasi Hapus Data</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Apakah Anda yakin ingin menghapus data ini?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                            <form action="{{ route('pengguna.destroy', $user->id) }}" method="POST" style="display:inline-block;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Modal HTML -->
                             @endforeach
                         </tbody>
                     </table>
