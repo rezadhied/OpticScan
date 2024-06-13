@@ -78,14 +78,14 @@
                     @if (Auth::user()->role === 'pasien')
                     <a href="{{ route('infopenyakit') }}"
                         class="nav-link d-flex align-items-center gap-2 text-white {{ request()->routeIs('infopenyakit') ? 'active' : '' }}"
-                        style="padding-top: 10px; padding-bottom: 10px;">
+                        aria-current="page">
                         <img src="/img/riwayat.png" alt="Riwayat">
                         Riwayat
                     </a>
                     @endif
                     <a href="{{ route('tkami') }}"
                         class="nav-link d-flex align-items-center gap-2 text-white {{ request()->routeIs('tkami') ? 'active' : '' }}"
-                        style="padding-top: 10px; padding-bottom: 10px;">
+                        aria-current="page">
                         <img src="/img/team.png" alt="">
                         Tentang Kami
                     </a>
