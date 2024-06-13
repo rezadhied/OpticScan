@@ -51,74 +51,81 @@
     </style>
 </head>
 <body>
-@extends('layouts.app')
+    @extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row ">
-        <div class="col-md-15">
-            <div class="d-flex justify-content-between mb-3">
-                <a href="{{ route('formPengguna.index') }}" class="btn btn-primary">
-                    <img src="img/add-user.png" alt="Icon" class="button-img">
-                    <span class="ms-1 button-text">Tambah Pengguna</span>
-                </a>
-            </div>          
-            <div class="card">
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>User</th>
-                            <th>Nama</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Birthdate</th>
-                            <th>Role</th>
-                            <th colspan="2">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>kiki11</td>
-                            <td>Rizky Pratama</td>
-                            <td>Rizky11@gmail.com</td>
-                            <td>7305477760</td>
-                            <td>03/11/1995</td>
-                            <td>Pasien</td>
-                            <td>
-                                <button class="btn btn-outline-primary rounded-lg btnEdit btn-action" onclick="location.href='{{ route('editPengguna.index') }}'">
-                                    <i class="bi bi-pencil-square"></i>
-                                </button>
-                                <button class="btn btn-danger rounded-lg btn-action" data-bs-toggle="modal" data-bs-target="#myModal">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <!-- Modal HTML -->
-                <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Hapus Data</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    @section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between mb-3">
+                    <a href="{{ route('pengguna.create') }}" class="btn btn-primary">
+                        <img src="img/add-user.png" alt="Icon" class="button-img">
+                        <span class="ms-1 button-text">Tambah Pengguna</span>
+                    </a>
+                </div>          
+                <div class="card">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Nama</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Birthdate</th>
+                                <th>Role</th>
+                                <th colspan="2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($users as $user)
+                            <tr>
+                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->phone }}</td>
+                                <td>{{ $user->birthdate }}</td>
+                                <td>{{ ucfirst($user->role) }}</td>
+                                <td>
+                                    <a href="{{ route('pengguna.edit', $user->id) }}" class="btn btn-outline-primary rounded-lg btnEdit btn-action">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
+                                    <button class="btn btn-danger rounded-lg btn-action" data-bs-toggle="modal" data-bs-target="#myModal_{{ $user->id }}">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                             <!-- Modal HTML -->
+                            <div class="modal fade" id="myModal_{{ $user->id }}" tabindex="-1" aria-labelledby="deleteModalLabel_{{ $user->id }}" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="deleteModalLabel_{{ $user->id }}">Konfirmasi Hapus Data</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Apakah Anda yakin ingin menghapus data ini?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                            <form action="{{ route('pengguna.destroy', $user->id) }}" method="POST" style="display:inline-block;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                                Apakah Anda yakin ingin menghapus data ini?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                <button type="button" class="btn btn-danger">Hapus</button>
-                            </div>
-                        </div>
-                    </div>
+                            <!-- End Modal HTML -->
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
-                <!-- End Modal HTML -->
             </div>
         </div>
     </div>
-</div>
-@endsection
+    @endsection
+    
 
 <script>
     function confirmDelete() {
