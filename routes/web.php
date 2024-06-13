@@ -34,6 +34,7 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
 Route::get('/infopenyakit', [InfoPenyakitController::class, 'index'])->name('infopenyakit');
+Route::get('/infopenyakit/{id}', [InfoPenyakitController::class, 'show'])->name('infopenyakit.show');
 
 Route::get('/tkami', [TentangKamiController::class, 'index'])->name('tkami');
 

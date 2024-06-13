@@ -4,7 +4,7 @@
     <div class="container mt-5">
         <div class="card">
             <div class="card-body">
-                <h1 class="font-weight-bold" style="font-size: 2    .5rem;">Riwayat Saya</h1>
+                <h1 class="font-weight-bold" style="font-size: 2.5rem;">Riwayat Saya</h1>
                 <div class="d-flex justify-content-between align-items-center mt-3 mb-4">
                     <form class="form-inline">
                         <div class="input-group">
@@ -59,84 +59,31 @@
                                 </th>
                                 <th scope="col">Aksi</th>
                             </tr>
-                            
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Rizy Pratama</td>
-                                <td>Katarak</td>
-                                <td>7305477760</td>
-                                <td>Dr. Aditya Wardhana</td>
-                                <td>03/12/2024</td>
-                                <td>
-                                    <span class="badge bg-danger text-white">Pemeriksaan Lanjutan</span>
-                                </td>
-                                <td>
-                                    <a href="{{ route('detailpenyakit') }}" class="btn btn-primary rounded-lg"><i
-                                            class="far fa-clipboard"></i></a>&nbsp;&nbsp;
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Rizy Pratama</td>
-                                <td>Katarak</td>
-                                <td>7305477760</td>
-                                <td>Dr. Cindy Pratiwi</td>
-                                <td>15/01/2024</td>
-                                <td>
-                                    <span class="badge bg-warning text-white">Perawatan Lanjutan</span>
-                                </td>
-                                <td>
-                                    <button class="btn btn-primary rounded-lg"><i
-                                            class="far fa-clipboard"></i></button>&nbsp;&nbsp;
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Rizy Pratama</td>
-                                <td>Glaukoma</td>
-                                <td>7305477760</td>
-                                <td>Dr. Cindy Pratiwi</td>
-                                <td>24/07/2022</td>
-                                <td>
-                                    <span class="badge bg-success text-white">Pulih</span>
-                                </td>
-                                <td>
-                                    <button class="btn btn-primary rounded-lg"><i
-                                            class="far fa-clipboard"></i></button>&nbsp;&nbsp;
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Rizy Pratama</td>
-                                <td>Glaukoma</td>
-                                <td>7305477760</td>
-                                <td>Dr. Dian Anggraini</td>
-                                <td>08/12/2021</td>
-                                <td>
-                                    <span class="badge bg-warning text-white">Perawatan Lanjutan</span>
-                                </td>
-                                <td>
-                                    <button class="btn btn-primary rounded-lg"><i
-                                            class="far fa-clipboard"></i></button>&nbsp;&nbsp;
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Rizy Pratama</td>
-                                <td>Ambylopia</td>
-                                <td>7305477760</td>
-                                <td>Dr. Rini Putri</td>
-                                <td>18/04/2020</td>
-                                <td>
-                                    <span class="badge bg-success text-white">Pulih</span>
-                                </td>
-                                <td>
-                                    <button class="btn btn-primary rounded-lg"><i
-                                            class="far fa-clipboard"></i></button>&nbsp;&nbsp;
-                                </td>
-                            </tr>
+                            @foreach($reports as $report)
+                                <tr>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td>{{ $report->patient->name }}</td>
+                                    <td>{{ $report->diagnose }}</td>
+                                    <td>{{ $report->patient->phone }}</td>
+                                    <td>{{ $report->doctor->user->name }}</td>
+                                    <td>{{ $report->register_date }}</td>
+                                    <td>
+                                        @if($report->test_status == 'Sedang Diproses')
+                                            <span class="badge bg-danger text-white">{{ $report->test_status }}</span>
+                                        @else
+                                            <span class="badge bg-success text-white">{{ $report->test_status }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('infopenyakit.show', $report->report_id) }}" class="btn btn-primary rounded-lg">
+                                            <i class="far fa-clipboard"></i>
+                                        </a>&nbsp;&nbsp;
+                                    </td>
+                                    
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -159,5 +106,4 @@
     </div>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 @endsection
