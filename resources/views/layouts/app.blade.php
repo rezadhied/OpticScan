@@ -82,7 +82,7 @@
                         <a href="{{ route('kelolaPengguna.index') }}"
                             class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
                             <img src="/img/people.png" alt="">
-                            Kelola Pengguna
+                            List Dokter
                         </a>
                     </li>
                 @endif
@@ -94,7 +94,6 @@
                     <img src="/img/profile.png" alt="" width="32" height="32" class="rounded-circle me-2">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
                     <li><a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a></li>
                     <li>
                         <hr class="dropdown-divider">
