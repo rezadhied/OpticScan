@@ -29,12 +29,14 @@
                 kepercayaan diri dengan OpticScan hari ini.
             </h5>
             <div class="d-flex justify-content-start">
+                @if (Auth::user()->role === 'pasien')
                 <a href="{{ route('infopenyakit') }}">
                     <button class="rounded-lg btn-lg"
                         style="background-color: #081445; color: white; font-size: 15px; font-weight: 400; margin-top: 20px; border-radius: 10px;">
                         Lihat Riwayat
                     </button>
                 </a>
+                @endif
             </div>
         </div>
     </div>
@@ -59,7 +61,7 @@
 </div>
 
 
-<div class="container" style="padding: 20px; margin-top: 50px;">
+{{-- <div class="container" style="padding: 20px; margin-top: 50px;">
     <div class="row">
         <div class="col text-center">
             <h1 style="font-weight: bolder;">Testimoni</h1>
@@ -168,7 +170,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvY4IAKKJTikOwE3MCuSKSyGVNPhmR8fE92FN3wXAPJEBE2EsmCulO+v3SEoNnE" crossorigin="anonymous"></script>
