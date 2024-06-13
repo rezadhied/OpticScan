@@ -20,7 +20,7 @@
             <img src="/img/mata.png" style="width: 100%; max-width: 300px;">
         </div>
         <div class="col-md-6 order-md-1" style="margin-top: 20px;">
-            <h1 style="font-weight: bolder; font-size: 30px; color: white;">
+            <h1 style="font-weight: bolder; font-size: 30px; color: white;" class="mb-5">
                 Perjalanan Anda Menuju Visi yang Lebih Baik Dimulai Sekarang
             </h1>
             <h5 style="color: white; font-weight: lighter; font-size: 20px;">
@@ -28,7 +28,7 @@
             </h5>
             <div class="d-flex justify-content-start">
                 <a href="{{ route('infopenyakit') }}">
-                    <button class="rounded-lg btn-lg" style="background-color: #081445; color: white; font-size: 20px; font-weight: 600; margin-top: 20px;">
+                    <button type="button" class="btn btn-primary" style="background-color: #081445; color: white; font-size: 20px; font-weight: 600; margin-top: 20px;">
                         Lihat Riwayat
                     </button>
                 </a>
@@ -37,14 +37,14 @@
     </div>
 </div>
 
-<div class="container-fluid" style="background-color: #2a4499; padding: 20px; height: 390px; width: 1000px; margin-top: 150px; border-radius: 50px;">
+<div class="container-fluid h-auto w-auto p-2" style="background-color: #2a4499; margin-top: 100px; border-radius: 50px;">
     <div class="row">
         <div class="col text-center text-white" style="padding: 50px;">
             <h1 style="font-weight: bolder;">Deteksi Dini untuk Penyakit Mata (OpticScan)</h1>
             <h5 style="font-weight: lighter;">OpticScan merupakan aplikasi terintegrasi dengan AI untuk mendeteksi penyakit mata</h5>
             <div class="d-flex justify-content-center" style="margin-top: 20px;">
                 <a href="{{ route('tkami') }}">
-                    <button class="rounded-lg btn-lg" style="background-color: #D9D9D9; color: #132768; font-size: 20px; font-weight: 600; margin-top: 70px;">
+                    <button type="button" class="btn btn-primary" style="background-color: #D9D9D9; color: #132768; font-size: 20px; font-weight: 600; margin-top: 70px;">
                         Tentang Kami
                     </button>
                 </a>
@@ -170,10 +170,10 @@
             </div>
         </div>
     </div>
-</div><br><br><br><br><br><br><br><br><br><br><br>
+</div>
 
 
-<div class="container-fluid" style="background-color: #132768; padding: 50px;">
+<div class="container-fluid p-5" style="background-color: #132768; margin-top:100px ;">
     <div class="text-center text-light">
         <h1 style="color: white;">Memanen Kecerdasan dari Algoritma</h1>
         <h1 style="color: white;">Merintis Masa Depan AI</h1>
