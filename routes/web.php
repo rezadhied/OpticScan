@@ -15,7 +15,7 @@ use App\Http\Controllers\DetailPenyakitControllerController;
 use App\Http\Controllers\InputDataPasien;
 use App\Http\Controllers\KelolaPenggunaController;
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboardDokter')->middleware('auth');
+Route::get('/dokter-home', [DashboardController::class, 'index'])->name('dashboardDokter')->middleware('auth');
 
 Route::get('/', [DashboardPasienController::class, 'index'])->name('dashboardpasien')->middleware('auth');
 
