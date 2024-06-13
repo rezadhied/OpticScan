@@ -19,8 +19,8 @@
         <div class="col-md-6 order-md-2 d-flex justify-content-center align-items-center">
             <img src="/img/mata.png" style="width: 100%; max-width: 250px;">
         </div>
-        <div class="col-md-6 order-md-1" style="margin-top: 18px;">
-            <h1 style="font-weight: bolder; font-size: 25px; color: white;">
+        <div class="col-md-6 order-md-1" style="margin-top: 20px;">
+            <h1 style="font-weight: bolder; font-size: 30px; color: white;" class="mb-5">
                 Perjalanan Anda Menuju Visi yang Lebih Baik Dimulai Sekarang
             </h1>
             <h5 style="color: white; font-weight: lighter; font-size: 15px;">
@@ -31,8 +31,7 @@
             <div class="d-flex justify-content-start">
                 @if (Auth::user()->role === 'pasien')
                 <a href="{{ route('infopenyakit') }}">
-                    <button class="rounded-lg btn-lg"
-                        style="background-color: #081445; color: white; font-size: 15px; font-weight: 400; margin-top: 20px; border-radius: 10px;">
+                    <button type="button" class="btn btn-primary" style="background-color: #081445; color: white; font-size: 20px; font-weight: 600; margin-top: 20px;">
                         Lihat Riwayat
                     </button>
                 </a>
@@ -42,7 +41,7 @@
     </div>
 </div>
 
-<div class="container-fluid" style="background-color: #2a4499; padding: 20px; height: auto; margin-top: 50px; border-radius: 20px;">
+<div class="container-fluid h-auto w-auto p-2" style="background-color: #2a4499; margin-top: 100px; border-radius: 50px;">
     <div class="row">
         <div class="col text-center text-white" style="padding: 50px;">
             <h1 style="font-weight: bolder; font-size: 25px;">Deteksi Dini untuk Penyakit Mata (OpticScan)</h1>
@@ -50,8 +49,7 @@
                 untuk mendeteksi penyakit mata.</h5>
             <div class="d-flex justify-content-center" style="margin-top: 20px;">
                 <a href="{{ route('tkami') }}">
-                    <button class="rounded-lg btn-lg"
-                        style="background-color: #D9D9D9; color: #132768; font-size: 15px; font-weight: 400; border-radius: 10px;">
+                    <button type="button" class="btn btn-primary" style="background-color: #D9D9D9; color: #132768; font-size: 20px; font-weight: 600; margin-top: 70px;">
                         Tentang Kami
                     </button>
                 </a>
@@ -171,6 +169,16 @@
         </div>
     </div>
 </div> --}}
+
+
+<div class="container-fluid p-5" style="background-color: #132768; margin-top:100px ;">
+    <div class="text-center text-light">
+        <h1 style="color: white;">Memanen Kecerdasan dari Algoritma</h1>
+        <h1 style="color: white;">Merintis Masa Depan AI</h1>
+        <p class="nav-item active" style="border-bottom: 1px solid white;"></p>
+        <h3 style="color: white; font-size: medium; text-align: center;">© 2024 OpticScan. All rights reserved.</h3>
+    </div>    
+</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvY4IAKKJTikOwE3MCuSKSyGVNPhmR8fE92FN3wXAPJEBE2EsmCulO+v3SEoNnE" crossorigin="anonymous"></script>

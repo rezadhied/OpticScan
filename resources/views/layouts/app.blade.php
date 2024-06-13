@@ -27,8 +27,31 @@
         }
 
         .main-content {
-            margin-left: 270px; /* Adjust this value to prevent content overlap with the sidebar */
+            margin-left: 270px;
             padding: 20px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-link img {
+            width: 25px;
+            height: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: white !important;
+            color: blue !important;
+        }
+
+        .nav-link:hover img,
+        .nav-link.active img {
+            filter: invert(29%) sepia(89%) saturate(6365%) hue-rotate(179deg) brightness(101%) contrast(102%);
         }
     </style>
 </head>
@@ -39,7 +62,7 @@
         <div class="d-flex flex-column sidebar">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none pe-5">
                 <svg class="bi pe-none me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap"></use>
+                    <use xlink:href="#bootstrap"></use>q
                 </svg>
                 <span class="fs-6"><img src="/img/logo.png" alt=""></span>
             </a>
@@ -53,9 +76,9 @@
                     </a>
                     @if (Auth::user()->role === 'pasien')
                     <a href="{{ route('infopenyakit') }}"
-                        class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page"
+                        class="nav-link text-white mb-2 {{ request()->routeIs('infopenyakit') ? 'active' : '' }}"
                         style="padding-top: 10px; padding-bottom: 10px;">
-                        <img src="/img/riwayat.png" alt="">
+                        <img src="/img/riwayat.png" alt="Riwayat">
                         Riwayat
                     </a>
                     @endif
@@ -75,23 +98,22 @@
                     </li>
                 @endif
                 @if (Auth::user()->role === 'admin')
-                    <li>
-                        <a href="{{ route('admin.index') }}"
-                            class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
-                            <img src="/img/people.png" alt="">
-                            Kelola Pengguna
-                        </a>
-                    </li>
+                <li>
+                    <a href="{{ route('admin.index') }}"
+                        class="nav-link text-white mb-2 {{ request()->routeIs('admin.index') ? 'active' : '' }}">
+                        <img src="/img/people.png" alt="List Dokter">
+                        List Dokter
+                    </a>
+                </li>
                 @endif
             </ul>
             <hr>
             <div class="dropdown">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="/img/profile.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                    <img src="/img/profile.png" alt="Profile" width="32" height="32" class="rounded-circle me-2">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
                     <li><a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a></li>
                     <li>
                         <hr class="dropdown-divider">
