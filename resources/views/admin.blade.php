@@ -58,7 +58,7 @@
     <div class="row ">
         <div class="col-md-15">
             <div class="d-flex justify-content-between mb-3">
-                <a href="{{ route('kelolaPengguna.index') }}" class="btn btn-primary">
+                <a href="{{ route('formPengguna.index') }}" class="btn btn-primary">
                     <img src="img/add-user.png" alt="Icon" class="button-img">
                     <span class="ms-1 button-text">Tambah Pengguna</span>
                 </a>

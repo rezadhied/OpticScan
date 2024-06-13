@@ -45,7 +45,7 @@ Route::resource('/datapasien', DataPasienController::class)->names('datapasien')
 
 Route::resource('/admin', AdminController::class)->names('admin')->middleware('auth');
 
-Route::resource('/kelolapengguna', KelolaPenggunaController::class)->names('kelolaPengguna')->middleware('auth');
+Route::resource('/formPengguna', KelolaPenggunaController::class)->names('formPengguna')->middleware('auth');
 
 Route::resource('/editPengguna', EditPenggunaController::class)->names('editPengguna')->middleware('auth');
 
