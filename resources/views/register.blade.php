@@ -25,6 +25,7 @@
             height: 100%; 
             object-fit: cover;
         }
+
     </style>
 </head>
 <body class="flex-row">
@@ -40,7 +41,8 @@
                             <div class="card-body">
                                 <div class="text-start">
                                     <h1 class="justify-center align-content-lg-center" style="color: #132768; font-size: 45px;">Sign Up</h1>
-                                    <span>Sudah punya akun? <a class="link-opacity-50-hover fw-semibold" href="/login">Log in</a></span><br><br><br>
+                                    <span>Sudah punya akun? <a class="link-opacity-50-hover fw-semibold" href="/login">Log in</a></span>
+                                    <br><br>
                                 </div>
                                 @if (session('alert'))
                                     <div class="alert alert-danger" role="alert">
