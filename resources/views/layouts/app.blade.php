@@ -70,21 +70,21 @@
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
                     <a href="{{ Auth::user()->role === 'dokter' ? route('dashboardDokter') : route('dashboardpasien') }}"
-                        class="nav-link d-flex align-items-center gap-2 text-white {{ request()->routeIs('dashboardDokter', 'dashboardpasien') ? 'active' : '' }}"
+                        class="nav-link d-flex align-items-center gap-2 text-white mb-3 {{ request()->routeIs('dashboardDokter', 'dashboardpasien') ? 'active' : '' }}"
                         aria-current="page">
                         <img src="/img/home.png" alt="">
                         Beranda
                     </a>
                     @if (Auth::user()->role === 'pasien')
                     <a href="{{ route('infopenyakit') }}"
-                        class="nav-link d-flex align-items-center gap-2 text-white {{ request()->routeIs('infopenyakit') ? 'active' : '' }}"
+                        class="nav-link d-flex align-items-center gap-2 text-white mb-3 {{ request()->routeIs('infopenyakit') ? 'active' : '' }}"
                         aria-current="page">
                         <img src="/img/riwayat.png" alt="Riwayat">
                         Riwayat
                     </a>
                     @endif
                     <a href="{{ route('tkami') }}"
-                        class="nav-link d-flex align-items-center gap-2 text-white {{ request()->routeIs('tkami') ? 'active' : '' }}"
+                        class="nav-link d-flex align-items-center gap-2 text-white mb-3 {{ request()->routeIs('tkami') ? 'active' : '' }}"
                         aria-current="page">
                         <img src="/img/team.png" alt="">
                         Tentang Kami
@@ -93,7 +93,7 @@
                 @if (Auth::user()->role === 'dokter')
                     <li>
                         <a href="{{ route('datapasien.index') }}"
-                            class="nav-link d-flex align-items-center gap-2 text-white {{ request()->routeIs('datapasien.index') ? 'active' : '' }}"
+                            class="nav-link d-flex align-items-center gap-2 text-white mb-3 {{ request()->routeIs('datapasien.index') ? 'active' : '' }}"
                             aria-current="page">
                             <img src="/img/people.png" alt="Pasien">
                             Pasien
@@ -103,7 +103,7 @@
                 @if (Auth::user()->role === 'admin')
                     <li>
                         <a href="{{ route('admin.index') }}"
-                            @class(["nav-link d-flex align-items-center gap-2 text-white","active" => Route::currentRouteName() == "admin.index"])
+                            @class(["nav-link d-flex align-items-center gap-2 text-white mb-3","active" => Route::currentRouteName() == "admin.index"])
                             aria-current="page">
                             <img src="/img/people.png" alt="Kelola Pengguna">
                             Kelola Pengguna
