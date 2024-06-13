@@ -69,38 +69,33 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a href="{{ route('dashboardpasien') }}"
-                        class="nav-link text-white mb-2 {{ request()->routeIs('dashboardpasien') ? 'active' : '' }}">
-                        <img src="/img/home.png" alt="Home">
+                    <a href="{{ Auth::user()->role === 'dokter' ? route('dashboardDokter') : route('dashboardpasien') }}"
+                        class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
+                        <img src="/img/home.png" alt="">
                         Beranda
                     </a>
+                    @if (Auth::user()->role === 'pasien')
                     <a href="{{ route('infopenyakit') }}"
                         class="nav-link text-white mb-2 {{ request()->routeIs('infopenyakit') ? 'active' : '' }}"
                         style="padding-top: 10px; padding-bottom: 10px;">
                         <img src="/img/riwayat.png" alt="Riwayat">
                         Riwayat
                     </a>
-                    <a href="{{ route('tkami') }}"
-                        class="nav-link text-white mb-2 {{ request()->routeIs('tkami') ? 'active' : '' }}"
-                        style="padding-top: 10px; padding-bottom: 10px;">
-                        <img src="/img/team.png" alt="Tentang Kami">
+                    @endif
+                    <a href="{{ route('tkami') }}" class="nav-link d-flex align-items-center gap-2 text-white"
+                        aria-current="page" style="padding-top: 10px; padding-bottom: 10px;">
+                        <img src="/img/team.png" alt="">
                         Tentang Kami
                     </a>
-                    <a href="{{ route('setelan') }}"
-                        class="nav-link text-white mb-2 {{ request()->routeIs('setelan') ? 'active' : '' }}"
-                        style="padding-top: 10px; padding-bottom: 10px;">
-                        <img src="/img/setting.png" alt="Setelan" style="width: 25px; height: 25px;">
-                        Setelan
-                    </a>
                 </li>
-                @if (Auth::user()->role !== 'pasien')
-                <li>
-                    <a href="{{ route('datapasien.index') }}"
-                        class="nav-link text-white mb-2 {{ request()->routeIs('datapasien.index') ? 'active' : '' }}">
-                        <img src="/img/people.png" alt="Pasien">
-                        Pasien
-                    </a>
-                </li>
+                @if (Auth::user()->role === 'dokter')
+                    <li>
+                        <a href="{{ route('datapasien.index') }}"
+                            class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
+                            <img src="/img/people.png" alt="">
+                            Pasien
+                        </a>
+                    </li>
                 @endif
                 @if (Auth::user()->role === 'admin')
                 <li>
