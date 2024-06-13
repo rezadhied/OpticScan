@@ -8,6 +8,6 @@ class KelolaPenggunaController extends Controller
 {
     public function index()
     {
-        return view('kelolapengguna');
+        return view('formPengguna');
     }
 }

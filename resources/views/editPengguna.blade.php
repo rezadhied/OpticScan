@@ -54,15 +54,7 @@
                                 <label for="birthdate" class="form-label">Birthdate</label>
                                 <input type="date" class="form-control" id="birthdate" required>
                             </div>
-                            <div class="mb-3">
-                                <label for="role" class="form-label">Role</label>
-                                <select class="form-select" id="role" required>
-                                    <option value="" selected disabled>Select role</option>
-                                    <option value="doctor">Dokter</option>
-                                    <option value="patient">Pasien</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Tambah Pengguna</button>
+                            <button type="submit" class="btn btn-primary">Simpan Data Pengguna</button>
                         </form>
                     </div>
                 </div>
