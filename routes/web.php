@@ -43,6 +43,7 @@ Route::get('/tkami', [TentangKamiController::class, 'index'])->name('tkami');
 
 Route::get('/DataInput', [InputDataPasien::class, 'index'])->middleware('auth');
 Route::resource('/datapasien', DataPasienController::class)->names('datapasien')->middleware('auth');
+Route::get('/datapasien/{id}', [DataPasienController::class, 'show'])->name('datapasien.show');
 
 Route::resource('/admin', AdminController::class)->names('admin')->middleware('auth');
 Route::resource('/formPengguna', KelolaPenggunaController::class)->names('formPengguna')->middleware('auth');

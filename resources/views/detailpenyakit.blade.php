@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="card-footer text-right">
-                <a href="{{ route('infopenyakit') }}">
+                <a href="{{ Auth::user()->role === 'dokter' ? route('datapasien.index') : route('infopenyakit') }}">
                     <button class="btn btn-lg btn-primary" style="font-size: 20px; font-weight: 600;">Kembali</button>
                 </a>
             </div>
