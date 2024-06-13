@@ -21,9 +21,12 @@ Route::get('/dokter-home', [DashboardController::class, 'index'])->name('dashboa
 
 Route::get('/', [DashboardPasienController::class, 'index'])->name('dashboardpasien')->middleware('auth');
 
-Route::resource('/profile', ProfilController::class)->names('profile')->middleware('auth');
-
-Route::resource('/profilepasien', ProfilePasienController::class)->names('profilepasien');
+//Route::resource('/profile', ProfilController::class)->names('profile')->middleware('auth');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfilController::class, 'index'])->name('profile.index');
+    Route::put('/profile', [ProfilController::class, 'updateProfile'])->name('profile.update');
+    Route::put('/profile/change_password', [ProfilController::class, 'changePassword'])->name('profile.change_password');
+});
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'loginPost'])->name('login.post');
