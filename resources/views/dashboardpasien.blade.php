@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <title>DASHBOARD</title>
 </head>
@@ -24,7 +27,11 @@
                 Selamat datang di OpticScan.. Dengan teknologi canggih dan perawatan yang dipersonalisasi. Kami menawarkan pemeriksaan mata yang tepat dan solusi yang disesuaikan. Temukan kejelasan dan kepercayaan diri dengan OpticScan hari ini
             </h5>
             <div class="d-flex justify-content-start">
-                <button class="rounded-lg btn-lg" style="background-color: #081445; color: white; font-size: 20px; font-weight: 600; margin-top: 20px;">Lihat Riwayat</button>
+                <a href="{{ route('infopenyakit') }}">
+                    <button class="rounded-lg btn-lg" style="background-color: #081445; color: white; font-size: 20px; font-weight: 600; margin-top: 20px;">
+                        Lihat Riwayat
+                    </button>
+                </a>
             </div>
         </div>
     </div>
@@ -36,17 +43,22 @@
             <h1 style="font-weight: bolder;">Deteksi Dini untuk Penyakit Mata (OpticScan)</h1>
             <h5 style="font-weight: lighter;">OpticScan merupakan aplikasi terintegrasi dengan AI untuk mendeteksi penyakit mata</h5>
             <div class="d-flex justify-content-center" style="margin-top: 20px;">
-                <button class="rounded-lg btn-lg" style="background-color: #D9D9D9; color: #132768; font-size: 20px; font-weight: 600; margin-top: 70px;">Tentang Kami</button>
+                <a href="{{ route('tkami') }}">
+                    <button class="rounded-lg btn-lg" style="background-color: #D9D9D9; color: #132768; font-size: 20px; font-weight: 600; margin-top: 70px;">
+                        Tentang Kami
+                    </button>
+                </a>
             </div>
+            
         </div>
     </div>
 </div>
 
-<div class="container" style="padding: 20px; margin-top: 230px;">
+<div class="container mt-5" style="padding: 20px;">
     <div class="row">
         <div class="col text-center">
             <h1 style="font-weight: bolder;">Testimoni</h1>
-            <h5 style="font-weight: lighter;">Berbagai review positif dari pengguna website kami</h5>
+            <h5 class="rounded" style="font-weight: lighter;">Berbagai review positif dari pengguna website kami</h5>
         </div>
     </div>
 </div>
@@ -146,7 +158,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div><br>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
@@ -162,7 +174,6 @@
 
 
 <div class="container-fluid" style="background-color: #132768; padding: 50px;">
-    <img src="/img/logo.png" style="width: 250px; height: 90px;" alt="">
     <div class="text-center text-light">
         <h1 style="color: white;">Memanen Kecerdasan dari Algoritma</h1>
         <h1 style="color: white;">Merintis Masa Depan AI</h1>
@@ -177,6 +188,7 @@
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
+@endsection

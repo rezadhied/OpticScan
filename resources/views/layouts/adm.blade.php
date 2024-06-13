@@ -79,7 +79,7 @@
                 @endif
                 @if (Auth::user()->role === 'admin')
                     <li>
-                        <a href="{{ route('admin.index') }}"
+                        <a href="{{ route('kelolaPengguna.index') }}"
                             class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
                             <img src="/img/people.png" alt="">
                             Kelola Pengguna

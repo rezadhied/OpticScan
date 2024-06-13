@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!doctype html>
 <html lang="en">
   <head>
@@ -79,9 +82,8 @@
                   <span class="badge bg-danger text-white">Pemeriksaan Lanjutan</span>
               </td>
               <td>
-                  <button class="btn btn-primary rounded-lg"><i class="far fa-clipboard"></i></button>&nbsp;&nbsp;
-                  <button class="btn btn-secondary rounded-lg"><i class="far fa-trash-can"></i></button>
-              </td>
+                <a href="{{ route('detailpenyakit') }}" class="btn btn-primary rounded-lg"><i class="far fa-clipboard"></i></a>&nbsp;&nbsp;
+            </td>            
           </tr>
           <tr>
               <th scope="row">2</th>
@@ -95,7 +97,6 @@
               </td>
               <td>
                   <button class="btn btn-primary rounded-lg"><i class="far fa-clipboard"></i></button>&nbsp;&nbsp;
-                  <button class="btn btn-secondary rounded-lg"><i class="far fa-trash-can"></i></button>
               </td>
           </tr>
           <tr>
@@ -110,7 +111,6 @@
               </td>
               <td>
                   <button class="btn btn-primary rounded-lg"><i class="far fa-clipboard"></i></button>&nbsp;&nbsp;
-                  <button class="btn btn-secondary rounded-lg"><i class="far fa-trash-can"></i></button>
               </td>
           </tr>
           <tr>
@@ -125,7 +125,6 @@
               </td>
               <td>
                   <button class="btn btn-primary rounded-lg"><i class="far fa-clipboard"></i></button>&nbsp;&nbsp;
-                  <button class="btn btn-secondary rounded-lg"><i class="far fa-trash-can"></i></button>
               </td>
           </tr>
           <tr>
@@ -139,8 +138,7 @@
                 <span class="badge bg-success text-white">Pulih</span>
             </td>
             <td>
-                <button class="btn btn-primary rounded-lg"><i class="far fa-clipboard"></i></button>&nbsp;&nbsp;
-                <button class="btn btn-secondary rounded-lg"><i class="far fa-trash-can"></i></button>
+                <button class="btn btn-primary rounded-lg"><i class="far fa-clipboard"></i></button>&nbsp;&nbsp
             </td>
         </tr>
       </tbody>
@@ -161,7 +159,6 @@
   </nav><br><br>
   
   <div class="container-fluid" style="background-color: #132768; padding: 50px;">
-    <img src="/img/logo.png" style="width: 250px; height: 90px;" alt="">
     <div class="text-center text-light">
         <h1 style="color: white;">Memanen Kecerdasan dari Algoritma</h1>
         <h1 style="color: white;">Merintis Masa Depan AI</h1>
@@ -177,3 +174,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
+@endsection
