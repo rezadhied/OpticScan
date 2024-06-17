@@ -19,6 +19,8 @@ class CreateReportsTable extends Migration
             $table->date('register_date');
             $table->string('test_status');
             $table->string('diagnose');
+            $table->string('verified');
+            $table->string('doctor_note');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('model_user')->onDelete('cascade');

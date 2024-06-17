@@ -18,6 +18,8 @@ class Report extends Model
         'register_date',
         'test_status',
         'diagnose',
+        'verified',
+        'doctor_note',
     ];
 
     public function patient()

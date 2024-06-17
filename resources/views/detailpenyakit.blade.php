@@ -1,12 +1,8 @@
 @extends('layouts.app')
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Detail Pasien</title>
 </head>
 @section('content')
@@ -28,19 +24,28 @@
                                 Nama Pasien: <span class="font-weight-normal">{{ $report->patient->name }}</span>
                             </div>
                             <div class="list-group-item border border-dark rounded-lg mb-2">
-                                Tanggal Lahir: <span class="font-weight-normal">{{ $report->patient->birthdate }}</span>
-                            </div>
-                            <div class="list-group-item border border-dark rounded-lg mb-2">
-                                Nama Dokter: <span class="font-weight-normal">{{ $report->doctor->user->name }}</span>
+                                No HP Pasien: <span class="font-weight-normal">{{ $report->patient->phone }}</span>
                             </div>
                             <div class="list-group-item border border-dark rounded-lg mb-2">
                                 Tanggal Registrasi: <span class="font-weight-normal">{{ $report->register_date }}</span>
                             </div>
                             <div class="list-group-item border border-dark rounded-lg mb-2">
-                                Status Tes: <span class="badge bg-danger text-white">{{ $report->test_status }}</span>
+                                Diagnosa: <span class="font-weight-normal" id="diagnoseText">{{ $report->diagnose }}</span>
+                                <input type="text" class="form-control d-none" id="diagnoseInput" name="diagnose" value="{{ $report->diagnose }}" form="updateForm">
                             </div>
                             <div class="list-group-item border border-dark rounded-lg mb-2">
-                                Diagnosa: <span class="font-weight-normal">{{ $report->diagnose }}</span>
+                                Status Tes: <span class="{{ $report->test_status === 'Test Selesai' ? 'badge bg-success text-white' : 'badge bg-danger text-white' }}">{{ $report->test_status }}</span>
+                            </div>
+                            <div class="list-group-item border border-dark rounded-lg mb-2">
+                                Status Verifikasi: <span class="{{ $report->verified === 'Terverifikasi Oleh Dokter' ? 'badge bg-success text-white' : 'badge bg-danger text-white' }}" id="verifiedText">{{ $report->verified }}</span>
+                            </div>
+                            <hr>
+                            <div class="list-group-item border border-dark rounded-lg mb-2">
+                                Nama Dokter: <span class="font-weight-normal">{{ $report->doctor->user->name }}</span>
+                            </div>
+                            <div class="list-group-item border border-dark rounded-lg mb-2">
+                                Catatan Dokter: <span class="font-weight-normal" id="doctorNoteText">{{ $report->doctor_note }}</span>
+                                <textarea class="form-control d-none" id="doctorNoteInput" name="doctor_note" form="updateForm">{{ $report->doctor_note }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -50,11 +55,49 @@
                 <a href="{{ Auth::user()->role === 'dokter' ? route('datapasien.index') : route('infopenyakit') }}">
                     <button class="btn btn-lg btn-primary" style="font-size: 20px; font-weight: 600;">Kembali</button>
                 </a>
+                @if (Auth::user()->role === 'dokter')
+                <button id="editButton" class="btn btn-lg btn-warning" style="font-size: 20px; font-weight: 600;" onclick="toggleEdit()">Edit Riwayat</button>
+                <form action="{{ route('report.update', $report->report_id) }}" method="POST" id="updateForm" class="d-inline">
+                    @csrf
+                    @method('PUT')
+                    <button type="submit" class="btn btn-lg btn-success d-none" id="saveChangesButton" style="font-size: 20px; font-weight: 600;">Simpan Perubahan</button>
+                </form>
+                @if ($report->verified !== 'Terverifikasi Oleh Dokter')
+                <form action="{{ route('report.verify', $report->report_id) }}" method="POST" class="d-inline">
+                    @csrf
+                    @method('PUT')
+                    <button type="submit" class="btn btn-lg btn-info" style="font-size: 20px; font-weight: 600;">Verifikasi Diagnosa</button>
+                </form>
+                @endif
+                @endif
             </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        function toggleEdit() {
+            var diagnoseText = document.getElementById('diagnoseText');
+            var diagnoseInput = document.getElementById('diagnoseInput');
+            var doctorNoteText = document.getElementById('doctorNoteText');
+            var doctorNoteInput = document.getElementById('doctorNoteInput');
+            var saveChangesButton = document.getElementById('saveChangesButton');
+            var editButton = document.getElementById('editButton');
+
+            diagnoseText.classList.toggle('d-none');
+            diagnoseInput.classList.toggle('d-none');
+            doctorNoteText.classList.toggle('d-none');
+            doctorNoteInput.classList.toggle('d-none');
+            saveChangesButton.classList.toggle('d-none');
+
+            if (editButton.textContent.trim() === 'Edit Riwayat') {
+                editButton.textContent = 'Batal';
+                editButton.classList.remove('btn-warning');
+                editButton.classList.add('btn-danger');
+            } else {
+                editButton.textContent = 'Edit Riwayat';
+                editButton.classList.remove('btn-danger');
+                editButton.classList.add('btn-warning');
+            }
+        }
+    </script>
 @endsection

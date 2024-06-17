@@ -38,8 +38,10 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 Route::get('/infopenyakit', [InfoPenyakitController::class, 'index'])->name('infopenyakit');
 Route::get('/infopenyakit/{id}', [InfoPenyakitController::class, 'show'])->name('infopenyakit.show');
 Route::get('/detailpenyakit', [DetailPenyakitController::class, 'index'])->name('detailpenyakit');
+Route::put('/report/{id}/update', [DataPasienController::class, 'update'])->name('report.update');
+Route::put('/report/{id}/verify', [DataPasienController::class, 'verify'])->name('report.verify');
 
-Route::get('/tkami', [TentangKamiController::class, 'index'])->name('tkami');
+Route::get('/tkami', [TentangKamiController::class, 'index'])->name('tkami')->middleware('auth');
 
 Route::get('/DataInput', [InputDataPasien::class, 'index'])->middleware('auth');
 Route::resource('/datapasien', DataPasienController::class)->names('datapasien')->middleware('auth');
