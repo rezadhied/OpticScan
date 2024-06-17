@@ -24,6 +24,9 @@
                                 Nama Pasien: <span class="font-weight-normal">{{ $report->patient->name }}</span>
                             </div>
                             <div class="list-group-item border border-dark rounded-lg mb-2">
+                                No HP Pasien: <span class="font-weight-normal">{{ $report->patient->phone }}</span>
+                            </div>
+                            <div class="list-group-item border border-dark rounded-lg mb-2">
                                 Tanggal Registrasi: <span class="font-weight-normal">{{ $report->register_date }}</span>
                             </div>
                             <div class="list-group-item border border-dark rounded-lg mb-2">
