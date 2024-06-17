@@ -59,6 +59,7 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
+                                <th scope="col">#</th>
                                 <th>ID Pasien</th>
                                 <th>Nama Pasien</th>
                                 <th>No HP</th>
@@ -66,12 +67,13 @@
                                 <th>Tanggal Daftar</th>
                                 <th>Diagnosa</th>
                                 <th>Status</th>
-                                <th>Aksi</th>
+                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($reports as $report)
                             <tr>
+                                <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $report->patient_id }}</td>
                                 <td>{{ $report->patient->name }}</td>
                                 <td>{{ $report->patient->phone }}</td>
@@ -79,7 +81,11 @@
                                 <td>{{ $report->register_date }}</td>
                                 <td>{{ $report->diagnose }}</td>
                                 <td>{{ $report->test_status }}</td>
-                                <td>i</td>
+                                <td>
+                                    <a href="{{ route('datapasien.show', $report->report_id) }}" class="btn btn-primary rounded-lg">
+                                        <i class="far fa-clipboard"></i>
+                                    </a>&nbsp;&nbsp;
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -88,8 +94,9 @@
             </div>
         </div>
     </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     @endsection
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   
     <script>
         function setStatus(status, btnClass) {
             var selectedStatus = document.getElementById('selectedStatus');

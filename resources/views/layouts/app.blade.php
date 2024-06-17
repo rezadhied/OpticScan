@@ -27,8 +27,31 @@
         }
 
         .main-content {
-            margin-left: 270px; /* Adjust this value to prevent content overlap with the sidebar */
+            margin-left: 270px;
             padding: 20px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-link img {
+            width: 25px;
+            height: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: white !important;
+            color: blue !important;
+        }
+
+        .nav-link:hover img,
+        .nav-link.active img {
+            filter: invert(29%) sepia(89%) saturate(6365%) hue-rotate(179deg) brightness(101%) contrast(102%);
         }
     </style>
 </head>
@@ -46,33 +69,33 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a href="{{ route('dashboardpasien') }}"
-                        class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
+                    <a href="{{ Auth::user()->role === 'dokter' ? route('dashboardDokter') : route('dashboardpasien') }}"
+                        class="nav-link d-flex align-items-center gap-2 text-white {{ request()->routeIs('dashboardDokter', 'dashboardpasien') ? 'active' : '' }}"
+                        aria-current="page">
                         <img src="/img/home.png" alt="">
                         Beranda
                     </a>
+                    @if (Auth::user()->role === 'pasien')
                     <a href="{{ route('infopenyakit') }}"
-                        class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page"
-                        style="padding-top: 10px; padding-bottom: 10px;">
-                        <img src="/img/riwayat.png" alt="">
+                        class="nav-link d-flex align-items-center gap-2 text-white {{ request()->routeIs('infopenyakit') ? 'active' : '' }}"
+                        aria-current="page">
+                        <img src="/img/riwayat.png" alt="Riwayat">
                         Riwayat
                     </a>
-                    <a href="{{ route('tkami') }}" class="nav-link d-flex align-items-center gap-2 text-white"
-                        aria-current="page" style="padding-top: 10px; padding-bottom: 10px;">
+                    @endif
+                    <a href="{{ route('tkami') }}"
+                        class="nav-link d-flex align-items-center gap-2 text-white {{ request()->routeIs('tkami') ? 'active' : '' }}"
+                        aria-current="page">
                         <img src="/img/team.png" alt="">
                         Tentang Kami
                     </a>
-                    <a href="{{ route('setelan') }}" class="nav-link d-flex align-items-center gap-2 text-white"
-                        aria-current="page" style="padding-top: 10px; padding-bottom: 10px;">
-                        <img src="/img/setting.png" alt="" style="width: 25px; height: 25px;">
-                        Setelan
-                    </a>
                 </li>
-                @if (Auth::user()->role !== 'pasien')
+                @if (Auth::user()->role === 'dokter')
                     <li>
                         <a href="{{ route('datapasien.index') }}"
-                            class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
-                            <img src="/img/people.png" alt="">
+                            class="nav-link d-flex align-items-center gap-2 text-white {{ request()->routeIs('datapasien.index') ? 'active' : '' }}"
+                            aria-current="page">
+                            <img src="/img/people.png" alt="Pasien">
                             Pasien
                         </a>
                     </li>
@@ -80,8 +103,9 @@
                 @if (Auth::user()->role === 'admin')
                     <li>
                         <a href="{{ route('admin.index') }}"
-                            class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page">
-                            <img src="/img/people.png" alt="">
+                            @class(["nav-link d-flex align-items-center gap-2 text-white","active" => Route::currentRouteName() == "admin.index"])
+                            aria-current="page">
+                            <img src="/img/people.png" alt="Kelola Pengguna">
                             Kelola Pengguna
                         </a>
                     </li>
@@ -90,11 +114,10 @@
             <hr>
             <div class="dropdown">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="/img/profile.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                    data-bs-toggle="dropdown" aria-current="page">
+                    <img src="/img/profile.png" alt="Profile" width="32" height="32" class="rounded-circle me-2">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
                     <li><a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a></li>
                     <li>
                         <hr class="dropdown-divider">

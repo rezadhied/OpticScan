@@ -41,9 +41,9 @@ class DataPasienController extends Controller
 
         // Simpan data pasien di table patient_report
         $patientReport = PatientReport::create([
-            'patient_id' => $request->patient_id,
+            //'patient_id' => $request->patient_id,
             'user_id' => $user->id,
-            'report_id' => 1, // Sementara kosong, akan diupdate setelah report dibuat
+            'report_id' => null, // Sementara kosong, akan diupdate setelah report dibuat
         ]);
 
         // Simpan data report di table reports
@@ -71,6 +71,15 @@ class DataPasienController extends Controller
         }
 
         return redirect('/datapasien')->with('alert', 'Data pasien berhasil disimpan');
+    }
+
+    public function show($id)
+    {
+        $report = Report::with(['patient', 'doctor.user', 'reportData'])
+                        ->where('report_id', $id)
+                        ->firstOrFail();
+
+        return view('detailpenyakit', compact('report'));
     }
 
 }
