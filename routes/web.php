@@ -39,7 +39,7 @@ Route::get('/infopenyakit', [InfoPenyakitController::class, 'index'])->name('inf
 Route::get('/infopenyakit/{id}', [InfoPenyakitController::class, 'show'])->name('infopenyakit.show');
 Route::get('/detailpenyakit', [DetailPenyakitController::class, 'index'])->name('detailpenyakit');
 
-Route::get('/tkami', [TentangKamiController::class, 'index'])->name('tkami');
+Route::get('/tkami', [TentangKamiController::class, 'index'])->name('tkami')->middleware('auth');
 
 Route::get('/DataInput', [InputDataPasien::class, 'index'])->middleware('auth');
 Route::resource('/datapasien', DataPasienController::class)->names('datapasien')->middleware('auth');
