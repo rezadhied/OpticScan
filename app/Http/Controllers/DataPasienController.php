@@ -53,6 +53,8 @@ class DataPasienController extends Controller
             'register_date' => $request->register_date,
             'test_status' => 'Sedang Diproses',
             'diagnose' => 'Belum Terdiagnosa',
+            'verified' => 'Belum Terverifikasi Dokter',
+            'doctor_note' => 'Belum ada catatan dokter',
         ]);
 
         // Update patient_report dengan report_id yang sudah dibuat
@@ -82,4 +84,27 @@ class DataPasienController extends Controller
         return view('detailpenyakit', compact('report'));
     }
 
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'diagnose' => 'required|string',
+            'doctor_note' => 'required|string',
+        ]);
+
+        $report = Report::findOrFail($id);
+        $report->diagnose = $request->input('diagnose');
+        $report->doctor_note = $request->input('doctor_note');
+        $report->save();
+
+        return redirect()->back()->with('success', 'Riwayat berhasil diperbarui.');
+    }
+
+    public function verify($id)
+    {
+        $report = Report::findOrFail($id);
+        $report->verified = 'Terverifikasi Oleh Dokter';
+        $report->save();
+
+        return redirect()->back()->with('success', 'Diagnosa berhasil diverifikasi.');
+    }
 }

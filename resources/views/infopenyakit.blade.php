@@ -45,18 +45,6 @@
                                     </button>
                                 </th>
                                 <th scope="col">
-                                    No Hp
-                                    <button class="btn btn-link btn-sort" data-sort="phone">
-                                        <i class="fas fa-sort text-primary"></i>
-                                    </button>
-                                </th>
-                                <th scope="col">
-                                    Dokter
-                                    <button class="btn btn-link btn-sort" data-sort="doctor">
-                                        <i class="fas fa-sort text-primary"></i>
-                                    </button>
-                                </th>
-                                <th scope="col">
                                     Tanggal Daftar
                                     <button class="btn btn-link btn-sort" data-sort="date">
                                         <i class="fas fa-sort text-primary"></i>
@@ -77,8 +65,6 @@
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>{{ $report->patient->name }}</td>
                                     <td>{{ $report->diagnose }}</td>
-                                    <td>{{ $report->patient->phone }}</td>
-                                    <td>{{ $report->doctor->user->name }}</td>
                                     <td>{{ $report->register_date }}</td>
                                     <td>
                                         @if($report->test_status == 'Sedang Diproses')
