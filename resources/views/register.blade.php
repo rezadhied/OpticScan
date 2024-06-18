@@ -53,7 +53,7 @@
                                     @csrf
                                     <div class="form-group mb-2">
                                         <label for="name" style="color: #132768;">Nama Lengkap</label>
-                                        <input type="text" name="username" class="form-control form-control-user fw-light" id="name" placeholder="Masukkan Nama Lengkap Anda" value="{{ old('name') }}">
+                                        <input type="text" name="name" class="form-control form-control-user fw-light" id="name" placeholder="Masukkan Nama Lengkap Anda" value="{{ old('name') }}">
                                         @error('name')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror

@@ -15,7 +15,7 @@ class RegisterController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'name' => 'required|min:4',
+            'name' => 'required|min:2',
             'Uname' => 'required|min:4|unique:model_user,username',
             'email' => 'required|email|unique:model_user,email',
             'ttl' => 'required|date',
@@ -43,7 +43,7 @@ class RegisterController extends Controller
 
     public function storeDokter(Request $request){
         $request->validate([
-            'name' => 'required|min:4',
+            'name' => 'required|min:2',
             'Uname' => 'required|min:4|unique:model_user,username',
             'email' => 'required|email|unique:model_user,email',
             'ttl' => 'required|date',
