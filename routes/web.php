@@ -20,7 +20,6 @@ use App\Http\Controllers\AdminController;
 Route::get('/dokter-home', [DashboardController::class, 'index'])->name('dashboardDokter')->middleware('auth');
 Route::get('/', [DashboardPasienController::class, 'index'])->name('dashboardpasien')->middleware('auth');
 
-//Route::resource('/profile', ProfilController::class)->names('profile')->middleware('auth');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfilController::class, 'index'])->name('profile.index');
     Route::put('/profile', [ProfilController::class, 'updateProfile'])->name('profile.update');
@@ -29,21 +28,28 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'loginPost'])->name('login.post');
-
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
-Route::get('/infopenyakit', [InfoPenyakitController::class, 'index'])->name('infopenyakit');
-Route::get('/infopenyakit/{id}', [InfoPenyakitController::class, 'show'])->name('infopenyakit.show');
-Route::get('/detailpenyakit', [DetailPenyakitController::class, 'index'])->name('detailpenyakit');
+Route::middleware('auth')->group(function () {
+    Route::get('/infopenyakit', [InfoPenyakitController::class, 'index'])->name('infopenyakit');
+    Route::get('/infopenyakit/{id}', [InfoPenyakitController::class, 'show'])->name('infopenyakit.show');
+    Route::get('/detailpenyakit', [DetailPenyakitController::class, 'index'])->name('detailpenyakit');
+    Route::put('/report/{id}/update', [DataPasienController::class, 'update'])->name('report.update');
+    Route::put('/report/{id}/verify', [DataPasienController::class, 'verify'])->name('report.verify');
+});
 
-Route::get('/tkami', [TentangKamiController::class, 'index'])->name('tkami');
+Route::get('/tkami', [TentangKamiController::class, 'index'])->name('tkami')->middleware('auth');
 
-Route::get('/DataInput', [InputDataPasien::class, 'index'])->middleware('auth');
-Route::resource('/datapasien', DataPasienController::class)->names('datapasien')->middleware('auth');
-Route::get('/datapasien/{id}', [DataPasienController::class, 'show'])->name('datapasien.show');
+Route::middleware('auth')->group(function () {
+    Route::post('/storePatient', [DataPasienController::class, 'storePatient'])->name('patient.store');
+    Route::get('/patients/create', [DataPasienController::class, 'create'])->name('patient.create');
+    Route::get('/patients/diagnose-all', [DiagnosisController::class, 'diagnoseExistingPatients'])->name('patients.diagnose-all');
+    Route::get('/DataInput', [InputDataPasien::class, 'index'])->middleware('auth');
+    Route::resource('/datapasien', DataPasienController::class)->names('datapasien')->middleware('auth');
+    Route::get('/datapasien/{id}', [DataPasienController::class, 'show'])->name('datapasien.show');
+});
 
 Route::resource('/admin', AdminController::class)->names('admin')->middleware('auth');
 Route::resource('/formPengguna', KelolaPenggunaController::class)->names('formPengguna')->middleware('auth');
@@ -60,10 +66,3 @@ Route::middleware('auth')->group(function () {
 
 
 Route::resource('/editPengguna', EditPenggunaController::class)->names('editPengguna')->middleware('auth');
-
-Route::post('/storePatient', [DataPasienController::class, 'storePatient'])->name('patient.store');
-
-//Route::get('/patients', [DataPasienController::class, 'index'])->name('patient.index');
-Route::get('/patients/create', [DataPasienController::class, 'create'])->name('patient.create');
-
-Route::get('/patients/diagnose-all', [DiagnosisController::class, 'diagnoseExistingPatients'])->name('patients.diagnose-all');

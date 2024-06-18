@@ -61,7 +61,6 @@ class AdminController extends Controller
             'password' => 'nullable|string|min:8',
             'phone' => 'required|string|max:15',
             'birthdate' => 'required|date',
-            'role' => 'required|in:dokter,pasien',
         ]);
 
         $user->update([
@@ -71,7 +70,6 @@ class AdminController extends Controller
             'password' => $request->password ? Hash::make($request->password) : $user->password,
             'phone' => $request->phone,
             'birthdate' => $request->birthdate,
-            'role' => $request->role,
         ]);
 
         return redirect()->route('pengguna.index')->with('success', 'User updated successfully.');

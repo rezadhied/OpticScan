@@ -62,8 +62,6 @@
                                 <th scope="col">#</th>
                                 <th>ID Pasien</th>
                                 <th>Nama Pasien</th>
-                                <th>No HP</th>
-                                <th>Nama Dokter</th>
                                 <th>Tanggal Daftar</th>
                                 <th>Diagnosa</th>
                                 <th>Status</th>
@@ -76,8 +74,6 @@
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $report->patient_id }}</td>
                                 <td>{{ $report->patient->name }}</td>
-                                <td>{{ $report->patient->phone }}</td>
-                                <td>{{ $report->doctor->user->name }}</td>
                                 <td>{{ $report->register_date }}</td>
                                 <td>{{ $report->diagnose }}</td>
                                 <td>{{ $report->test_status }}</td>
