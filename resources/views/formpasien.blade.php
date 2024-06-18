@@ -51,8 +51,8 @@
                             </div>
                             </div>
                             <div class="mt-4">
-                                <button class="btn btn-success me-3 w-9" type="submit">Save</button>
-                                <a href="{{ route('datapasien.index') }}" class="btn btn-danger">Cancel</a>
+                                <button class="btn btn-success me-3 w-9" type="submit">Simpan</button>
+                                <a href="{{ route('datapasien.index') }}" class="btn btn-danger">Kembali</a>
                             </div>
                         </form>
                     </div>

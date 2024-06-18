@@ -42,16 +42,10 @@
             height: 25px;
             transition: all 0.3s ease;
         }
-
-        .nav-pills {
+        .nav-pills{
             --bs-nav-pills-link-active-bg: rgba(49, 136, 223, 0.2);
         }
-
-        .nav-link:hover {
-            background-color: rgba(49, 136, 223, 0.2);
-        }
-
-        .nav-link.active {
+        .nav-link:hover{
             background-color: rgba(49, 136, 223, 0.2);
         }
     </style>
@@ -71,45 +65,45 @@
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
                     <a href="{{ Auth::user()->role === 'dokter' ? route('dashboardDokter') : route('dashboardpasien') }}"
-                        class="nav-link d-flex align-items-center gap-2 text-white mb-3 {{ request()->routeIs('dashboardDokter', 'dashboardpasien') ? 'active' : '' }}"
+                        class="nav-link d-flex align-items-center gap-2 text-white mb-2 {{ request()->routeIs('dashboardDokter', 'dashboardpasien') ? 'active' : '' }}"
                         aria-current="page">
                         <img src="/img/home.png" alt="">
                         Beranda
                     </a>
                     @if (Auth::user()->role === 'pasien')
                     <a href="{{ route('infopenyakit') }}"
-                        class="nav-link d-flex align-items-center gap-2 text-white mb-3 {{ request()->routeIs('infopenyakit') ? 'active' : '' }}"
+                        class="nav-link d-flex align-items-center gap-2 text-white mb-2 {{ request()->routeIs('infopenyakit') ? 'active' : '' }}"
                         aria-current="page">
                         <img src="/img/riwayat.png" alt="Riwayat">
                         Riwayat
                     </a>
                     @endif
                     <a href="{{ route('tkami') }}"
-                        class="nav-link d-flex align-items-center gap-2 text-white mb-3 {{ request()->routeIs('tkami') ? 'active' : '' }}"
+                        class="nav-link d-flex align-items-center gap-2 text-white mb-2 {{ request()->routeIs('tkami') ? 'active' : '' }}"
                         aria-current="page">
                         <img src="/img/team.png" alt="">
                         Tentang Kami
                     </a>
                 </li>
                 @if (Auth::user()->role === 'dokter')
-                <li>
-                    <a href="{{ route('datapasien.index') }}"
-                        class="nav-link d-flex align-items-center gap-2 text-white mb-3 {{ request()->routeIs('datapasien.index') ? 'active' : '' }}"
-                        aria-current="page">
-                        <img src="/img/people.png" alt="Pasien">
-                        Pasien
-                    </a>
-                </li>
+                    <li>
+                        <a href="{{ route('datapasien.index') }}"
+                            class="nav-link d-flex align-items-center gap-2 text-white mb-2 {{ request()->routeIs('datapasien.index') ? 'active' : '' }}"
+                            aria-current="page">
+                            <img src="/img/people.png" alt="Pasien">
+                            Pasien
+                        </a>
+                    </li>
                 @endif
                 @if (Auth::user()->role === 'admin')
-                <li>
-                    <a href="{{ route('admin.index') }}"
-                        @class(["nav-link d-flex align-items-center gap-2 text-white mb-3", "active" => Route::currentRouteName() == "admin.index"])
-                        aria-current="page">
-                        <img src="/img/people.png" alt="Kelola Pengguna">
-                        Kelola Pengguna
-                    </a>
-                </li>
+                    <li>
+                        <a href="{{ route('admin.index') }}"
+                            @class(["nav-link d-flex align-items-center gap-2 text-white mb-2","active" => Route::currentRouteName() == "admin.index"])
+                            aria-current="page">
+                            <img src="/img/people.png" alt="Kelola Pengguna">
+                            Kelola Pengguna
+                        </a>
+                    </li>
                 @endif
             </ul>
             <hr>
