@@ -43,15 +43,16 @@
             transition: all 0.3s ease;
         }
 
-        .nav-link:hover,
-        .nav-link.active {
-            background-color: white !important;
-            color: blue !important;
+        .nav-pills {
+            --bs-nav-pills-link-active-bg: rgba(49, 136, 223, 0.2);
         }
 
-        .nav-link:hover img,
-        .nav-link.active img {
-            filter: invert(29%) sepia(89%) saturate(6365%) hue-rotate(179deg) brightness(101%) contrast(102%);
+        .nav-link:hover {
+            background-color: rgba(49, 136, 223, 0.2);
+        }
+
+        .nav-link.active {
+            background-color: rgba(49, 136, 223, 0.2);
         }
     </style>
 </head>
@@ -91,24 +92,24 @@
                     </a>
                 </li>
                 @if (Auth::user()->role === 'dokter')
-                    <li>
-                        <a href="{{ route('datapasien.index') }}"
-                            class="nav-link d-flex align-items-center gap-2 text-white mb-3 {{ request()->routeIs('datapasien.index') ? 'active' : '' }}"
-                            aria-current="page">
-                            <img src="/img/people.png" alt="Pasien">
-                            Pasien
-                        </a>
-                    </li>
+                <li>
+                    <a href="{{ route('datapasien.index') }}"
+                        class="nav-link d-flex align-items-center gap-2 text-white mb-3 {{ request()->routeIs('datapasien.index') ? 'active' : '' }}"
+                        aria-current="page">
+                        <img src="/img/people.png" alt="Pasien">
+                        Pasien
+                    </a>
+                </li>
                 @endif
                 @if (Auth::user()->role === 'admin')
-                    <li>
-                        <a href="{{ route('admin.index') }}"
-                            @class(["nav-link d-flex align-items-center gap-2 text-white mb-3","active" => Route::currentRouteName() == "admin.index"])
-                            aria-current="page">
-                            <img src="/img/people.png" alt="Kelola Pengguna">
-                            Kelola Pengguna
-                        </a>
-                    </li>
+                <li>
+                    <a href="{{ route('admin.index') }}"
+                        @class(["nav-link d-flex align-items-center gap-2 text-white mb-3", "active" => Route::currentRouteName() == "admin.index"])
+                        aria-current="page">
+                        <img src="/img/people.png" alt="Kelola Pengguna">
+                        Kelola Pengguna
+                    </a>
+                </li>
                 @endif
             </ul>
             <hr>
