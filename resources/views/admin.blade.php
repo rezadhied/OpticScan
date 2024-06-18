@@ -37,14 +37,6 @@
         .btn-primary:hover .button-text {
             color: white;
         }
-        .btnEdit {
-            color: blue;
-            border-color: blue; 
-        }
-        .btnEdit:hover {
-            background-color: blue; 
-            color: white; 
-        }
         .btn-action {
             margin-right: 5px; /* Adjust the spacing between buttons */
         }
@@ -125,14 +117,5 @@
         </div>
     </div>
     @endsection
-    
-
-<script>
-    function confirmDelete() {
-        if (confirm("Apakah Anda yakin menghapus akun ini?")) {
-            
-        }
-    }
-</script>
 </body>
 </html>

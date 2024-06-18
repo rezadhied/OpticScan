@@ -64,5 +64,3 @@ Route::middleware('auth')->group(function () {
     Route::delete('/pengguna/{id}', [AdminController::class, 'destroy'])->name('pengguna.destroy');
 });
 
-
-Route::resource('/editPengguna', EditPenggunaController::class)->names('editPengguna')->middleware('auth');

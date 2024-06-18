@@ -1,3 +1,4 @@
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -31,7 +32,11 @@
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">NO
+                                    <button class="btn btn-link btn-sort" data-sort="name">
+                                            <i class="fas fa-sort text-primary"></i>
+                                    </button>
+                                </th>
                                 <th scope="col">
                                     Nama
                                     <button class="btn btn-link btn-sort" data-sort="name">
@@ -56,7 +61,11 @@
                                         <i class="fas fa-sort text-primary"></i>
                                     </button>
                                 </th>
-                                <th scope="col">Aksi</th>
+                                <th scope="col">Aksi
+                                    <button class="btn btn-link btn-sort" data-sort="name">
+                                        <i class="fas fa-sort text-primary"></i>
+                                    </button>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -78,7 +87,6 @@
                                             <i class="far fa-clipboard"></i>
                                         </a>&nbsp;&nbsp;
                                     </td>
-                                    
                                 </tr>
                             @endforeach
                         </tbody>
