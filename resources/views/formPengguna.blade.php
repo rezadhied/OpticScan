@@ -69,6 +69,7 @@
                             </div>
                             @endif
                             <button type="submit" class="btn btn-primary">{{ isset($user) ? 'Simpan Data Pengguna' : 'Tambah Pengguna' }}</button>
+                            <a href="{{ route('admin.index') }}" class="btn btn-danger">Kembali</a>
                         </form>
                     </div>
                 </div>

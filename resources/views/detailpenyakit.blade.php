@@ -53,20 +53,21 @@
             </div>
             <div class="card-footer text-right">
                 <a href="{{ Auth::user()->role === 'dokter' ? route('datapasien.index') : route('infopenyakit') }}">
-                    <button class="btn btn-lg btn-primary" style="font-size: 20px; font-weight: 600;">Kembali</button>
+                    <button class="btn btn-lg btn-primary">Kembali</button>
+                    
                 </a>
                 @if (Auth::user()->role === 'dokter')
-                <button id="editButton" class="btn btn-lg btn-warning" style="font-size: 20px; font-weight: 600;" onclick="toggleEdit()">Edit Riwayat</button>
+                <button id="editButton" class="btn btn-lg btn-warning" onclick="toggleEdit()">Edit Riwayat</button>
                 <form action="{{ route('report.update', $report->report_id) }}" method="POST" id="updateForm" class="d-inline">
                     @csrf
                     @method('PUT')
-                    <button type="submit" class="btn btn-lg btn-success d-none" id="saveChangesButton" style="font-size: 20px; font-weight: 600;">Simpan Perubahan</button>
+                    <button type="submit" class="btn btn-lg btn-success d-none" id="saveChangesButton">Simpan Perubahan</button>
                 </form>
                 @if ($report->verified !== 'Terverifikasi Oleh Dokter')
                 <form action="{{ route('report.verify', $report->report_id) }}" method="POST" class="d-inline">
                     @csrf
                     @method('PUT')
-                    <button type="submit" class="btn btn-lg btn-info" style="font-size: 20px; font-weight: 600;">Verifikasi Diagnosa</button>
+                    <button type="submit" class="btn btn-lg btn-info">Verifikasi Diagnosa</button>
                 </form>
                 @endif
                 @endif

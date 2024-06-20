@@ -59,7 +59,7 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">NO</th>
                                 <th>ID Pasien</th>
                                 <th>Nama Pasien</th>
                                 <th>Tanggal Daftar</th>
@@ -78,9 +78,10 @@
                                 <td>{{ $report->diagnose }}</td>
                                 <td>{{ $report->test_status }}</td>
                                 <td>
-                                    <a href="{{ route('datapasien.show', $report->report_id) }}" class="btn btn-primary rounded-lg">
+                                    <a href="{{ route('datapasien.show', $report->report_id) }}" class="btn btn-outline-primary rounded-lg">
                                         <i class="far fa-clipboard"></i>
-                                    </a>&nbsp;&nbsp;
+                                    </a>
+                                    
                                 </td>
                             </tr>
                             @endforeach
