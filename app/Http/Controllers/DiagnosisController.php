@@ -14,14 +14,19 @@ class DiagnosisController extends Controller
     public function callDiagnosisAPI(Report $report, $filepath)
     {
         $file = Storage::disk('public')->path($filepath);
-
+        \Log::info('Attempting to call Ngrok API.');
+    
         try {
-            $response = Http::attach('file', fopen($file, 'r'))->post('http://127.0.0.1:5000/predict');
-
+            $response = Http::withOptions(['verify' => false])
+                            ->attach('file', fopen($file, 'r'))
+                            ->post('https://dca8-103-233-100-236.ngrok-free.app/predict');
+        
+            \Log::info('Ngrok API response:', ['response' => $response->body()]);
+        
             if ($response->successful()) {
                 $data = $response->json();
                 $predictedClass = $data['predicted_class'] ?? 'Tidak diketahui';
-
+        
                 $report->update([
                     'diagnose' => $predictedClass,
                     'test_status' => 'Test Selesai',
@@ -33,6 +38,7 @@ class DiagnosisController extends Controller
             \Log::error('Error while calling diagnosis API.', ['error' => $e->getMessage()]);
         }
     }
+    
 
     public function diagnoseExistingPatients()
     {
